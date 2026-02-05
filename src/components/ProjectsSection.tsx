@@ -3,36 +3,48 @@ import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured online store with cart, checkout, and payment integration. Built with modern tech stack for optimal performance.',
-    tags: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
+    title: 'Smart Accounting and Management',
+    description: 'Web-based POS and accounting management system.',
+    organization: 'Ban Mae Hoi Ngoen School',
+    tags: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
-    github: '#',
+    github: 'https://github.com/POTAEPT/my-shop.git',
     live: '#',
     featured: true,
   },
   {
-    title: 'Task Management App',
-    description: 'Collaborative project management tool with real-time updates, team features, and analytics dashboard.',
-    tags: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    title: 'Additional System CCTV-Cogniser V1',
+    description: 'System dashboard visualizing people counts, parking status, camera zones, and critical event alerts.',
+    organization: 'Chiang Mai Provincial Office',
+    tags: ['React', 'TypeScript', 'CSS'],
     image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
     github: '#',
     live: '#',
     featured: true,
   },
   {
-    title: 'Portfolio Website',
-    description: 'Personal portfolio with dark theme, smooth animations, and responsive design.',
-    tags: ['React', 'Framer Motion', 'Tailwind'],
+    title: 'Relief Mesh | Winner (Localism, Future Light (Student Prize)',
+    description: 'Decentralized disaster relief platform enabling offline SOS communication.',
+    organization: 'ETHChiangmai Hackathon 2026',
+    tags: ['React', 'TypeScript', 'CSS', 'MetaMask', 'P2P networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
     image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
+    github: '#',
+    live: '#',
+    featured: true,
+  },
+  {
+    title: 'Smart Deck Management',
+    description: 'Facilitates table arrangement using 2D/3D models generated from scans or manual input.',
+    tags: ['Hylife Hackathon 2025'],
+    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
     github: '#',
     live: '#',
     featured: false,
   },
   {
-    title: 'Weather Dashboard',
-    description: 'Real-time weather application with location-based forecasts and beautiful visualizations.',
-    tags: ['React', 'OpenWeather API', 'Chart.js'],
+    title: 'Impact Exchange',
+    description: 'Chiang Mai community platform for cashless skill sharing.',
+    tags: ['Shakesphere x Nomad Summit Buildathon 2026'],
     image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
     github: '#',
     live: '#',
@@ -45,7 +57,7 @@ const ProjectsSection = () => {
   const otherProjects = projects.filter(p => !p.featured);
 
   return (
-    <section id="activities" className="relative py-24 px-6">
+    <section id="projects" className="relative py-24 px-6">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -58,7 +70,7 @@ const ProjectsSection = () => {
             ABOUT ME
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
-            Activities
+            Projects
           </h3>
         </motion.div>
 
@@ -94,9 +106,14 @@ const ProjectsSection = () => {
                   <h4 className="text-2xl md:text-3xl font-bold mt-2 mb-4 group-hover:text-glow transition-all font-spartan">
                     {project.title}
                   </h4>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-6 font-lato">
                     {project.description}
                   </p>
+                  {project.organization && (
+                    <p className="text-xs text-muted-foreground mb-4">
+                      {project.organization}
+                    </p>
+                  )}
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -185,7 +202,7 @@ const ProjectsSection = () => {
               <h5 className="text-xl font-bold mb-2 group-hover:text-glow transition-all font-spartan">
                 {project.title}
               </h5>
-              <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+              <p className="text-sm text-muted-foreground mb-4 line-clamp-2 font-lato min-h-[48px]">
                 {project.description}
               </p>
 
@@ -193,7 +210,7 @@ const ProjectsSection = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs font-mono text-muted-foreground"
+                    className="text-xs text-muted-foreground"
                   >
                     {tag}
                   </span>

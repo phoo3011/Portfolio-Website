@@ -3,9 +3,9 @@ import { GraduationCap, Calendar } from 'lucide-react';
 
 const education = [
   {
-    degree: 'Digital Industry Integration (DII)',
-    school: 'Chiang Mai University',
-    faculty: 'College of Arts, Media and Technology (CAMT)',
+    degree: 'Chiang Mai University',
+    school: '',
+    faculty: 'College of Arts Media and Technology (CAMT), Digital Industry Integration (DII)',
     location: 'Chiang Mai, Thailand',
     period: '2025 - Present',
     gpa: '',
@@ -66,35 +66,24 @@ const EducationSection = () => {
                 {/* Content */}
                 <div className="relative">
                   {/* Header */}
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-start gap-3 mb-2">
-                        <GraduationCap className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                        <div>
-                          <h4 className="text-xl font-bold mb-1 font-spartan">{edu.degree}</h4>
-                          {edu.school && <p className="text-muted-foreground font-mono text-sm">{edu.school}</p>}
-                          {edu.faculty && <p className="text-muted-foreground/80 text-sm">{edu.faculty}</p>}
-                          <p className="text-muted-foreground/60 text-xs mt-1">{edu.location}</p>
-                        </div>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <GraduationCap className="w-6 h-6 text-primary flex-shrink-0" />
+                      <div>
+                        <h4 className="text-xl font-bold font-spartan">{edu.degree}</h4>
+                        {edu.school && <p className="text-muted-foreground font-mono text-sm">{edu.school}</p>}
+                        {edu.faculty && <p className="text-muted-foreground/80 text-base font-lato mt-1">{edu.faculty}</p>}
                       </div>
                     </div>
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-2 text-muted-foreground font-mono text-sm">
-                        <Calendar className="w-4 h-4" />
-                        <span>{edu.period}</span>
-                      </div>
-                      {edu.gpa && (
-                        <div className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-sm font-mono">
-                          GPA: {edu.gpa}
-                        </div>
-                      )}
+                    <div className="flex items-center gap-2 text-muted-foreground font-spartan text-sm md:ml-auto flex-shrink-0">
+                      <Calendar className="w-4 h-4" />
+                      <span>{edu.period}</span>
                     </div>
                   </div>
 
                   {/* Description */}
-                  {/* Description */}
                   {edu.description && (
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-muted-foreground mt-4 leading-relaxed">
                       {edu.description}
                     </p>
                   )}

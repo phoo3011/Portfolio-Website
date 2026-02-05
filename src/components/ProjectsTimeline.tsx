@@ -3,34 +3,26 @@ import { Layers, Calendar } from 'lucide-react';
 
 const projects = [
   {
-    name: 'Government Agency Management System',
-    organization: 'Government Agency',
-    location: 'Chiang Mai, Thailand',
-    period: '2025 - Present',
-    description: 'Developed comprehensive management system for government operations with focus on efficiency and user experience.',
-    highlights: ['React & TypeScript', 'Database Design', 'User Management'],
+    name: 'UX/UI Foundation Program by TCCtech',
+    organization: 'TCCtech',
+    location: 'Thailand',
+    period: '2025',
+    description: 'A foundational UX/UI program covering user-centered design and hands-on interface design workshops.',
+    highlights: [],
   },
   {
-    name: 'E-Commerce Platform',
-    organization: 'Personal Project',
-    location: 'Remote',
-    period: '2024',
-    description: 'Built full-featured online store with cart, checkout, and payment integration using modern technologies.',
-    highlights: ['Next.js', 'Stripe Integration', 'PostgreSQL'],
-  },
-  {
-    name: 'Portfolio Website',
-    organization: 'Personal Project',
-    location: 'Chiang Mai, Thailand',
-    period: '2024',
-    description: 'Personal portfolio with dark theme, smooth animations, and responsive design.',
-    highlights: ['React', 'Framer Motion', 'Tailwind CSS'],
+    name: 'Crafting World-Class UX/UI with Irene Pereyra',
+    organization: 'Design Workshop',
+    location: 'Thailand',
+    period: '2026',
+    description: 'UX/UI design talk on world-class design principles and real-world best practices.',
+    highlights: [],
   },
 ];
 
 const ProjectsTimeline = () => {
   return (
-    <section id="projects" className="relative py-24 px-6">
+    <section id="activities" className="relative py-24 px-6">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -43,7 +35,7 @@ const ProjectsTimeline = () => {
             ABOUT ME
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
-            Projects
+            Activities
           </h3>
         </motion.div>
 
@@ -72,7 +64,7 @@ const ProjectsTimeline = () => {
                   {/* Period badge */}
                   <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Calendar className="w-4 h-4 text-muted-foreground" />
-                    <span className="font-mono text-xs text-muted-foreground">{project.period}</span>
+                    <span className="font-spartan text-sm text-muted-foreground">{project.period}</span>
                   </div>
 
                   {/* Project Name & Organization */}

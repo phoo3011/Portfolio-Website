@@ -8,8 +8,8 @@ const socialLinks = [
 ];
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'hello@example.com', href: 'mailto:hello@example.com' },
-  { icon: Phone, label: 'Phone', value: '+66 123 456 789', href: 'tel:+66123456789' },
+  { icon: Mail, label: 'Email', value: 'phooriwat3011@gmail.com', href: 'mailto:phooriwat3011@gmail.com' },
+  { icon: Phone, label: 'Phone', value: '+66 98 952 6051', href: 'tel:+66989526051' },
   { icon: MapPin, label: 'Location', value: 'Chiang Mai, Thailand', href: '#' },
 ];
 
@@ -32,16 +32,16 @@ const ContactSection = () => {
           </h3>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex justify-center">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-6 w-full max-w-xl"
           >
-            <h4 className="font-mono text-lg font-semibold mb-6 font-spartan">Contact Information</h4>
+            <h4 className="text-2xl font-semibold mb-6 font-spartan">Contact Information</h4>
             
             {contactInfo.map((info, index) => (
               <motion.a
@@ -58,102 +58,18 @@ const ContactSection = () => {
                   <info.icon className="w-5 h-5 text-foreground" />
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+                  <p className="text-xs font-spartan text-muted-foreground uppercase tracking-wider">
                     {info.label}
                   </p>
-                  <p className="font-medium">{info.value}</p>
+                  <p className="font-medium font-lato">{info.value}</p>
                 </div>
               </motion.a>
             ))}
 
-            {/* Social Links */}
-            <div className="pt-6">
-              <p className="font-mono text-sm text-muted-foreground mb-4">Follow me</p>
-              <div className="flex gap-3">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="p-3 border border-border/50 rounded-full hover:bg-foreground hover:text-background transition-all"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+            
           </motion.div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <form className="card-gradient border border-border/50 rounded-2xl p-8 space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block font-mono text-sm text-muted-foreground mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="John Doe"
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-mono text-sm placeholder:text-muted-foreground focus:outline-none focus:border-foreground/50 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block font-mono text-sm text-muted-foreground mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="john@example.com"
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-mono text-sm placeholder:text-muted-foreground focus:outline-none focus:border-foreground/50 transition-colors"
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block font-mono text-sm text-muted-foreground mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  placeholder="Project Inquiry"
-                  className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-mono text-sm placeholder:text-muted-foreground focus:outline-none focus:border-foreground/50 transition-colors"
-                />
-              </div>
-              
-              <div>
-                <label className="block font-mono text-sm text-muted-foreground mb-2">
-                  Message
-                </label>
-                <textarea
-                  rows={5}
-                  placeholder="Tell me about your project..."
-                  className="w-full px-4 py-3 bg-secondary border border-border rounded-xl font-mono text-sm placeholder:text-muted-foreground focus:outline-none focus:border-foreground/50 transition-colors resize-none"
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-foreground text-background font-mono text-sm rounded-xl hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
-              >
-                <Send className="w-4 h-4" />
-                Send Message
-              </motion.button>
-            </form>
-          </motion.div>
+          
         </div>
       </div>
 

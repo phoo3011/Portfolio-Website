@@ -4,23 +4,24 @@ import { Code2, Palette, Rocket, Building2 } from 'lucide-react';
 const highlights = [
   {
     icon: Code2,
-    title: 'Web Development',
-    description: 'Building modern web applications with React and TypeScript',
+    title: 'Development',
+    description: '',
   },
   {
     icon: Palette,
     title: 'UX/UI Design',
-    description: 'Creating intuitive interfaces with user-centered design principles',
+    description: '',
   },
   {
     icon: Rocket,
-    title: 'Hackathon Experience',
-    description: 'Winner at ETHChiangmai and participant in multiple innovation challenges',
+    title: 'Hackathon Winner',
+    description: 'ETHChiangmai 2026',
+    subtitle: '(Relief Mesh)',
   },
   {
     icon: Building2,
-    title: 'Real-World Impact',
-    description: 'Developing systems for government agencies and educational institutions',
+    title: 'Government Project',
+    description: 'Chiang Mai Provincial Office',
   },
 ];
 
@@ -104,8 +105,9 @@ const AboutSection = () => {
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center mb-4">
                   <item.icon className="w-6 h-6 text-foreground" />
                 </div>
-                <h4 className="font-mono text-lg font-semibold mb-2 font-spartan">{item.title}</h4>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <h4 className="text-xl font-semibold font-spartan">{item.title}</h4>
+                <p className="text-sm text-muted-foreground mt-2 font-lato">{item.description}</p>
+                {item.subtitle && <p className="text-sm text-muted-foreground font-lato">{item.subtitle}</p>}
               </motion.div>
             ))}
           </motion.div>

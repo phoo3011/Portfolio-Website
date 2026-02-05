@@ -2,16 +2,21 @@ import { motion } from 'framer-motion';
 
 const skillCategories = [
   {
-    title: 'Frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    title: 'Technical Skills',
+    skills: [
+      'Programming: Java, Python, JavaScript, TypeScript, C++',
+      'Web Development: HTML, CSS, React',
+      'Database: SQL, MySQL',
+      'UX/UI Design: Wireframing, User Flow, Prototyping, Figma'
+    ],
   },
   {
-    title: 'Backend',
-    skills: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs'],
+    title: 'Soft Skills',
+    skills: ['Critical Thinking', 'Emotional Intelligence', 'Growth Mindset', 'Time Management', 'Etc.'],
   },
   {
-    title: 'Tools & Others',
-    skills: ['Git', 'Docker', 'AWS', 'Figma', 'Vercel'],
+    title: 'Languages',
+    skills: ['Thai (Native)', 'English (Intermediate)'],
   },
 ];
 
@@ -43,44 +48,44 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: catIndex * 0.15 }}
               viewport={{ once: true }}
-              className="card-gradient border border-border/50 rounded-2xl p-6"
+              className="card-gradient border border-border/50 rounded-2xl p-6 min-w-0"
             >
-              <h4 className="font-mono text-lg font-semibold mb-6 text-center font-spartan">
+              <h4 className="text-2xl font-semibold mb-6 text-center font-spartan">
                 {category.title}
               </h4>
               <div className="space-y-3">
-                {category.skills.map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary/50 transition-colors group"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-foreground/60 group-hover:bg-foreground transition-colors" />
-                    <span className="font-mono text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                      {skill}
-                    </span>
-                  </motion.div>
-                ))}
+                {category.skills.map((skill, index) => {
+                  const [label, ...rest] = skill.split(':');
+                  const value = rest.join(':').trim();
+                  
+                  return (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary/50 transition-colors group overflow-x-auto scrollbar-custom"
+                    >
+                      <div className="w-2 h-2 rounded-full bg-foreground/60 group-hover:bg-foreground transition-colors flex-shrink-0" />
+                      <span className="font-lato text-sm text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                        {value ? (
+                          <>
+                            <span className="font-bold">{label}:</span> {value}
+                          </>
+                        ) : (
+                          skill
+                        )}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <p className="text-muted-foreground text-sm font-mono">
-            ...and always learning new technologies
-          </p>
-        </motion.div>
+        
       </div>
 
       {/* Scroll Indicator */}
