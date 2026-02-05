@@ -18,8 +18,8 @@ const projects = [
     organization: 'Chiang Mai Provincial Office',
     tags: ['React', 'TypeScript', 'CSS'],
     image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
-    github: '#',
-    live: '#',
+    github: 'https://github.com/phoo3011/Dashboard-ChiangMai-Provincial-Office.git',
+    live: '/Additional%20System%20CCTV-Cogniser%20V1.mp4',
     featured: true,
   },
   {
@@ -28,8 +28,8 @@ const projects = [
     organization: 'ETHChiangmai Hackathon 2026',
     tags: ['React', 'TypeScript', 'CSS', 'MetaMask', 'P2P networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
     image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
-    github: '#',
-    live: '#',
+    github: 'https://github.com/POTAEPT/ReliefMesh-UIAteam.git',
+    live: '/Relief%20Mesh%20-%20Team%20UIA.mp4',
     featured: true,
   },
   {

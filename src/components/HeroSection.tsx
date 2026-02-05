@@ -2,9 +2,8 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Download, MapPin } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
+  { icon: Github, href: 'https://github.com/phoo3011', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/phoo3011/', label: 'LinkedIn' },
 ];
 
 const HeroSection = () => {
@@ -52,7 +51,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-mono text-sm text-muted-foreground mb-3 tracking-wider"
+              className="text-sm text-muted-foreground mb-3 tracking-wider"
             >
               👋 Hello, I'm
             </motion.p>
@@ -74,7 +73,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mb-4"
             >
-              <span className="font-mono text-xl md:text-2xl gradient-text font-medium">
+              <span className="text-xl md:text-2xl gradient-text font-medium font-lato">
                 Student at Chiang Mai University
               </span>
             </motion.div>
@@ -87,7 +86,7 @@ const HeroSection = () => {
               className="flex items-center justify-center lg:justify-start gap-2 mb-6"
             >
               <MapPin className="w-4 h-4 text-muted-foreground" />
-              <span className="font-mono text-sm text-muted-foreground">Chiang Mai, Thailand</span>
+              <span className="text-sm text-muted-foreground">Chiang Mai, Thailand</span>
             </motion.div>
 
 
