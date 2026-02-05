@@ -7,9 +7,9 @@ const projects = [
     description: 'Web-based POS and accounting management system.',
     organization: 'Ban Mae Hoi Ngoen School',
     tags: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+    image: '/Smart%20Accounting%20and%20Management.jpg',
     github: 'https://github.com/POTAEPT/my-shop.git',
-    live: '#',
+    live: '/Smart%20Accounting%20and%20Management.mp4',
     featured: true,
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     description: 'System dashboard visualizing people counts, parking status, camera zones, and critical event alerts.',
     organization: 'Chiang Mai Provincial Office',
     tags: ['React', 'TypeScript', 'CSS'],
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
+    image: '/Additional%20System%20CCTV-Cogniser%20V1.jpg',
     github: 'https://github.com/phoo3011/Dashboard-ChiangMai-Provincial-Office.git',
     live: '/Additional%20System%20CCTV-Cogniser%20V1.mp4',
     featured: true,
@@ -27,9 +27,10 @@ const projects = [
     description: 'Decentralized disaster relief platform enabling offline SOS communication.',
     organization: 'ETHChiangmai Hackathon 2026',
     tags: ['React', 'TypeScript', 'CSS', 'MetaMask', 'P2P networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
+    image: '/Relief%20Mesh.jpg',
     github: 'https://github.com/POTAEPT/ReliefMesh-UIAteam.git',
     live: '/Relief%20Mesh%20-%20Team%20UIA.mp4',
+    visit: 'https://devfolio.co/projects/relief-mesh-7406',
     featured: true,
   },
   {
@@ -147,6 +148,17 @@ const ProjectsSection = () => {
                       <ExternalLink className="w-4 h-4" />
                       Live Demo
                     </motion.a>
+                    {project.visit && (
+                      <motion.a
+                        href={project.visit}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-full font-mono text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all"
+                      >
+                        <ArrowUpRight className="w-4 h-4" />
+                        Visit Site
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               </div>
