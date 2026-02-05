@@ -8,11 +8,13 @@ import SkillsSection from '@/components/SkillsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import FloatingParticles from '@/components/FloatingParticles';
+import InteractiveParticles from '@/components/InteractiveParticles';
 
 const Index = () => {
   return (
     <div className="relative bg-background min-h-screen overflow-x-hidden">
       <FloatingParticles />
+      <InteractiveParticles />
       <Navbar />
       <main>
         <HeroSection />
