@@ -41,10 +41,10 @@ const EducationSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
-            Education
+            ABOUT ME
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
-            Academic Background
+            Education
           </h3>
         </motion.div>
 
@@ -116,6 +116,27 @@ const EducationSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        viewport={{ once: true }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-5 h-8 border-2 border-foreground/30 rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1 h-2 bg-foreground/50 rounded-full mt-1.5"
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

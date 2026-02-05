@@ -1,33 +1,32 @@
 import { motion } from 'framer-motion';
-import { Code2, Palette, Rocket, Users } from 'lucide-react';
+import { Code2, Palette, Rocket, Building2 } from 'lucide-react';
 
 const highlights = [
   {
     icon: Code2,
-    title: 'Clean Code',
-    description: 'Writing maintainable, scalable code with best practices',
+    title: 'Web Development',
+    description: 'Building modern web applications with React and TypeScript',
   },
   {
     icon: Palette,
-    title: 'UI/UX Design',
-    description: 'Creating beautiful, intuitive user interfaces',
+    title: 'UX/UI Design',
+    description: 'Creating intuitive interfaces with user-centered design principles',
   },
   {
     icon: Rocket,
-    title: 'Performance',
-    description: 'Optimizing for speed and efficiency',
+    title: 'Hackathon Experience',
+    description: 'Winner at ETHChiangmai and participant in multiple innovation challenges',
   },
   {
-    icon: Users,
-    title: 'Collaboration',
-    description: 'Working effectively with teams and clients',
+    icon: Building2,
+    title: 'Real-World Impact',
+    description: 'Developing systems for government agencies and educational institutions',
   },
 ];
 
 const stats = [
-  { number: '5+', label: 'Years Experience' },
-  { number: '50+', label: 'Projects Completed' },
-  { number: '30+', label: 'Happy Clients' },
+  { number: '2+', label: 'Years Experience' },
+  { number: '5+', label: 'Projects Completed' },
   { number: '10+', label: 'Technologies' },
 ];
 
@@ -43,7 +42,7 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
-            About Me
+            ABOUT ME
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold gradient-text mb-6 font-spartan">
             Profile
@@ -58,20 +57,12 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I'm a passionate full-stack developer with over 5 years of experience 
-              building modern web applications. I specialize in React, Node.js, and 
-              cloud technologies to create scalable solutions.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              My journey in tech started with a curiosity for how things work, 
-              and has evolved into a career focused on creating impactful digital 
-              experiences. I believe in writing clean, maintainable code and 
-              staying current with industry trends.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6 font-lato">
+              DII (CAMT) student at Chiang Mai University with a foundation in development and UX/UI design, and experience in hackathons and real-world system development for government agencies.
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-3 gap-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -84,7 +75,7 @@ const AboutSection = () => {
                   <div className="font-mono text-3xl font-bold text-foreground mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider">
+                  <div className="text-xs text-muted-foreground uppercase tracking-wider font-mono">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -120,6 +111,27 @@ const AboutSection = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        viewport={{ once: true }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-5 h-8 border-2 border-foreground/30 rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-1 h-2 bg-foreground/50 rounded-full mt-1.5"
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

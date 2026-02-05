@@ -17,6 +17,7 @@ export default {
         mono: ['Space Mono', 'monospace'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         spartan: ['League Spartan', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

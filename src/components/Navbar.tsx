@@ -33,15 +33,6 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-
-        <motion.a
-          href="#contact"
-          className="px-4 py-2 border border-foreground/30 rounded-full font-mono text-sm hover:bg-foreground hover:text-background transition-all duration-300"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Get in Touch
-        </motion.a>
       </div>
     </motion.nav>
   );

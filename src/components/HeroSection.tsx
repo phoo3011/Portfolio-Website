@@ -32,15 +32,10 @@ const HeroSection = () => {
               {/* Profile Image */}
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-border/50 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  src="/dog.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
-              </div>
-              {/* Status indicator */}
-              <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-background/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-border/50">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-xs font-mono text-muted-foreground">Available</span>
               </div>
             </div>
           </motion.div>
@@ -109,7 +104,7 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-3 bg-foreground text-background font-mono text-sm rounded-full hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
               >
-                Get in Touch
+                Contact
               </motion.a>
             </motion.div>
 
