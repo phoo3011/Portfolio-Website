@@ -47,6 +47,8 @@ const ContactSection = () => {
               <motion.a
                 key={info.label}
                 href={info.href}
+                target={info.href.startsWith('mailto:') || info.href.startsWith('tel:') ? undefined : '_blank'}
+                rel={info.href.startsWith('mailto:') || info.href.startsWith('tel:') ? undefined : 'noopener noreferrer'}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
