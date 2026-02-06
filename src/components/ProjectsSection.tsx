@@ -6,9 +6,9 @@ const projects = [
     title: 'Relief Mesh | Winner (Localism, Future Light (Student Prize)',
     description: 'Decentralized disaster relief platform enabling offline SOS communication.',
     organization: 'ETHChiangmai Hackathon 2026',
-    tags: ['React', 'TypeScript', 'CSS', 'MetaMask', 'P2P networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'MetaMask', 'P2P Networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
     image: '/Relief%20Mesh.jpg',
-    github: 'https://github.com/phoo3011/ReliefMesh-TeamUIA.git',
+    github: 'https://github.com/phoo3011/ReliefMesh-TeamUIA',
     live: '/Relief%20Mesh%20-%20Team%20UIA.mp4',
     visit: 'https://devfolio.co/projects/relief-mesh-7406',
     featured: true,
@@ -17,20 +17,20 @@ const projects = [
     title: 'Additional System CCTV-Cogniser V1',
     description: 'System dashboard visualizing people counts, parking status, camera zones, and critical event alerts.',
     organization: 'Chiang Mai Provincial Office',
-    tags: ['React', 'TypeScript', 'CSS'],
+    tags: ['React', 'TypeScript', 'Tailwind CSS'],
     image: '/Additional%20System%20CCTV-Cogniser%20V1.jpg',
     github: 'https://github.com/phoo3011/Dashboard-ChiangMai-Provincial-Office.git',
     live: '/Additional%20System%20CCTV-Cogniser%20V1.mp4',
     featured: true,
   },
   {
-    title: 'Smart Accounting and Management',
-    description: 'Web-based POS and accounting management system.',
-    organization: 'Ban Mae Hoi Ngoen School',
-    tags: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
-    image: '/Smart%20Accounting%20and%20Management.jpg',
-    github: 'https://github.com/phoo3011/My-Shop.git',
-    live: '/Smart%20Accounting%20and%20Management.mp4',
+    title: 'Impact Exchange',
+    description: 'Chiang Mai community platform for cashless skill sharing.',
+    organization: 'Shakesphere x Nomad Summit Buildathon 2026',
+    tags: ['React', 'TypeScript', 'Tailwind CSS'],
+    image: '/Impact%20Exchange.jpg',
+    github: '#',
+    live: '/Impact%20Exchange.mp4',
     featured: true,
   },
   {
@@ -43,12 +43,12 @@ const projects = [
     featured: false,
   },
   {
-    title: 'Impact Exchange',
-    description: 'Chiang Mai community platform for cashless skill sharing.',
-    tags: ['Shakesphere x Nomad Summit Buildathon 2026'],
-    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
-    github: '#',
-    live: '#',
+    title: 'Smart Accounting and Management',
+    description: 'Web-based POS and accounting management system.',
+    tags: ['Ban Mae Hoi Ngoen School'],
+    image: '/Smart%20Accounting%20and%20Management.jpg',
+    github: 'https://github.com/phoo3011/My-Shop.git',
+    live: '/Smart%20Accounting%20and%20Management.mp4',
     featured: false,
   },
 ];
@@ -130,15 +130,17 @@ const ProjectsSection = () => {
 
                   {/* Links */}
                   <div className="flex gap-4">
-                    <motion.a
-                      href={project.github}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 px-4 py-2 border border-border rounded-full font-mono text-sm hover:bg-secondary transition-all"
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </motion.a>
+                    {project.github && project.github !== '#' && (
+                      <motion.a
+                        href={project.github}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-4 py-2 border border-border rounded-full font-mono text-sm hover:bg-secondary transition-all"
+                      >
+                        <Github className="w-4 h-4" />
+                        Code
+                      </motion.a>
+                    )}
                     <motion.a
                       href={project.live}
                       whileHover={{ scale: 1.05 }}
@@ -192,20 +194,24 @@ const ProjectsSection = () => {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    onClick={(e) => e.stopPropagation()}
-                    className="p-2 hover:text-foreground text-muted-foreground transition-colors"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={project.live}
-                    onClick={(e) => e.stopPropagation()}
-                    className="p-2 hover:text-foreground text-muted-foreground transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
+                  {project.github && project.github !== '#' && (
+                    <a
+                      href={project.github}
+                      onClick={(e) => e.stopPropagation()}
+                      className="p-2 hover:text-foreground text-muted-foreground transition-colors"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
+                  )}
+                  {project.live && project.live !== '#' && (
+                    <a
+                      href={project.live}
+                      onClick={(e) => e.stopPropagation()}
+                      className="p-2 hover:text-foreground text-muted-foreground transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
                 <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
               </div>

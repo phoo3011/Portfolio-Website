@@ -4,7 +4,7 @@ import { Code2, Palette, Rocket, Building2 } from 'lucide-react';
 const highlights = [
   {
     icon: Code2,
-    title: 'Development',
+    title: 'Development, Web3',
     description: '',
   },
   {
@@ -59,7 +59,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
           >
             <p className="text-lg text-muted-foreground leading-relaxed mb-6 font-lato">
-              DII (CAMT) student at Chiang Mai University with a foundation in development and UX/UI design, and experience in hackathons and real-world system development for government agencies.
+              DII (CAMT) student at Chiang Mai University with a foundation in development, UX/UI design, and Web3, and hands-on experience from hackathons and real-world system development for government agencies.
             </p>
 
             {/* Stats */}
