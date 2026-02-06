@@ -3,13 +3,14 @@ import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Smart Accounting and Management',
-    description: 'Web-based POS and accounting management system.',
-    organization: 'Ban Mae Hoi Ngoen School',
-    tags: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
-    image: '/Smart%20Accounting%20and%20Management.jpg',
-    github: 'https://github.com/phoo3011/My-Shop.git',
-    live: '/Smart%20Accounting%20and%20Management.mp4',
+    title: 'Relief Mesh | Winner (Localism, Future Light (Student Prize)',
+    description: 'Decentralized disaster relief platform enabling offline SOS communication.',
+    organization: 'ETHChiangmai Hackathon 2026',
+    tags: ['React', 'TypeScript', 'CSS', 'MetaMask', 'P2P networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
+    image: '/Relief%20Mesh.jpg',
+    github: 'https://github.com/phoo3011/ReliefMesh-TeamUIA.git',
+    live: '/Relief%20Mesh%20-%20Team%20UIA.mp4',
+    visit: 'https://devfolio.co/projects/relief-mesh-7406',
     featured: true,
   },
   {
@@ -23,14 +24,13 @@ const projects = [
     featured: true,
   },
   {
-    title: 'Relief Mesh | Winner (Localism, Future Light (Student Prize)',
-    description: 'Decentralized disaster relief platform enabling offline SOS communication.',
-    organization: 'ETHChiangmai Hackathon 2026',
-    tags: ['React', 'TypeScript', 'CSS', 'MetaMask', 'P2P networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
-    image: '/Relief%20Mesh.jpg',
-    github: 'https://github.com/phoo3011/ReliefMesh-TeamUIA.git',
-    live: '/Relief%20Mesh%20-%20Team%20UIA.mp4',
-    visit: 'https://devfolio.co/projects/relief-mesh-7406',
+    title: 'Smart Accounting and Management',
+    description: 'Web-based POS and accounting management system.',
+    organization: 'Ban Mae Hoi Ngoen School',
+    tags: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
+    image: '/Smart%20Accounting%20and%20Management.jpg',
+    github: 'https://github.com/phoo3011/My-Shop.git',
+    live: '/Smart%20Accounting%20and%20Management.mp4',
     featured: true,
   },
   {
