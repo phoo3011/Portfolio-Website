@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
 import { Github, Linkedin, Twitter, Download, MapPin } from 'lucide-react';
+import { useRef } from 'react';
 
 const DevfolioIcon = () => (
   <svg 
@@ -28,36 +29,81 @@ const socialLinks = [
 ];
 
 const HeroSection = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end center'],
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0.5]);
+  
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Elements */}
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 dot-pattern opacity-20" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"
+        style={{ opacity }}
+      />
       
-      {/* Decorative circles */}
-      <div className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+      {/* Parallax Decorative circles with rotation */}
+      <motion.div 
+        className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
+        style={{ y: y1 }}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary/3 rounded-full blur-3xl"
+        style={{ y: y2 }}
+        animate={{ rotate: -360 }}
+        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+      />
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Side - Profile */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -50, rotate: -5 }}
+            animate={{ opacity: 1, x: 0, rotate: 0 }}
+            transition={{ duration: 0.8, type: 'spring' }}
+            whileHover={{ scale: 1.05, rotate: 2 }}
             className="flex-shrink-0"
           >
-            <div className="relative">
+            <motion.div 
+              className="relative"
+              whileHover={{ y: -10 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
               {/* Profile Image */}
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-border/50 shadow-2xl">
-                <img
+              <motion.div 
+                className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-border/50 shadow-2xl"
+                whileHover={{ 
+                  boxShadow: '0 0 40px rgba(255,255,255,0.3)',
+                  borderColor: 'rgba(255,255,255,0.5)'
+                }}
+              >
+                <motion.img
                   src="/dog.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                 />
-              </div>
-            </div>
+              </motion.div>
+              
+              {/* Animated ring around profile */}
+              <motion.div 
+                className="absolute inset-0 border-2 border-transparent rounded-full pointer-events-none"
+                animate={{ 
+                  borderColor: ['rgba(255,255,255,0)', 'rgba(255,255,255,0.3)', 'rgba(255,255,255,0)']
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </motion.div>
           </motion.div>
 
           {/* Right Side - Info */}
@@ -84,7 +130,12 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight whitespace-nowrap font-spartan"
             >
-              <span className="text-glow">Phooriwat Suphakkanok</span>
+              <motion.span 
+                className="text-glow inline-block"
+                whileHover={{ scale: 1.05 }}
+              >
+                Phooriwat Suphakkanok
+              </motion.span>
             </motion.h1>
 
             {/* Role */}
@@ -93,6 +144,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mb-4"
+              whileHover={{ scale: 1.02 }}
             >
               <span className="text-xl md:text-2xl gradient-text font-medium font-lato">
                 Student at Chiang Mai University
@@ -106,7 +158,9 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex items-center justify-center lg:justify-start gap-2 mb-6"
             >
-              <MapPin className="w-4 h-4 text-muted-foreground" />
+              <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+                <MapPin className="w-4 h-4 text-muted-foreground" />
+              </motion.div>
               <span className="text-sm text-muted-foreground">Chiang Mai, Thailand</span>
             </motion.div>
 
@@ -120,7 +174,7 @@ const HeroSection = () => {
             >
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255,255,255,0.3)' }}
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-3 bg-foreground text-background font-mono text-sm rounded-full hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
               >
@@ -141,12 +195,18 @@ const HeroSection = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 border border-border/50 rounded-full hover:bg-secondary hover:border-foreground/30 transition-all"
+                  whileHover={{ scale: 1.15, y: -5, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 400 }}
+                  className="p-3 border border-border/50 rounded-full hover:bg-secondary hover:border-foreground/30 transition-all group"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <motion.div
+                    animate={{ y: [0, -2, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </motion.div>
                 </motion.a>
               ))}
             </motion.div>
@@ -154,7 +214,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Animated Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
