@@ -227,10 +227,10 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1, type: 'spring' }}
               viewport={{ once: true }}
               whileHover={{ y: -10, rotate: 2, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
-              className="group card-gradient border border-border/50 rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300 cursor-pointer"
+              className="group card-gradient border border-border/50 rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300 cursor-pointer flex flex-col justify-between h-full"
             >
               <motion.div 
-                className="flex items-start justify-between mb-4"
+                className="flex items-start justify-between mb-4 min-h-[32px]"
                 whileHover={{ x: 5 }}
               >
                 <div className="flex gap-3">
