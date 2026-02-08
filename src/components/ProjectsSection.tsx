@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: 'Additional System CCTV-Cogniser V1',
-    description: 'System dashboard visualizing people counts, parking status, camera zones, and critical event alerts.',
+    description: 'System dashboard visualizing people counts, camera zones, and critical event alerts.',
     organization: 'Chiang Mai Provincial Office',
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
     image: '/Additional%20System%20CCTV-Cogniser%20V1.jpg',
