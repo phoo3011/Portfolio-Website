@@ -4,8 +4,8 @@ const skillCategories = [
   {
     title: 'Technical Skills',
     skills: [
-      'Programming: Java, Python, JavaScript, TypeScript, C++',
-      'Web Development: HTML, CSS, React',
+      'Programming: Java, Python, JavaScript, TypeScript, C++, PHP',
+      'Web Development: HTML, CSS, Tailwind CSS, React',
       'Database: SQL, MySQL',
       'UX/UI Design: Wireframing, User Flow, Prototyping, Figma'
     ],
