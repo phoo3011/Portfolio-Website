@@ -14,8 +14,8 @@ const projects = [
     featured: true,
   },
   {
-    title: 'Provincial CCTV Dashboard',
-    description: 'System dashboard for monitoring and displaying critical event alerts',
+    title: 'Provincial CCTV Dashboard & AI',
+    description: 'System dashboard for monitoring camera information and displaying critical alerts, featuring person and vehicle detection.',
     organization: 'Chiang Mai Provincial Office',
     tags: ['PHP', 'MySQL', 'HTML', 'JavaScript', 'Tailwind CSS'],
     image: '/Dashboard%20-%20Chiang%20Mai%20Provincial%20Office.jpg',
