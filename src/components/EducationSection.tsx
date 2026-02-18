@@ -5,7 +5,7 @@ const education = [
   {
     degree: 'Chiang Mai University',
     school: '',
-    faculty: 'College of Arts, Media and Technology (CAMT), Digital Industry Integration (DII)',
+    faculty: 'College of Arts, Media and Technology (CAMT), B.S. in Digital Industry Integration (DII)',
     location: 'Chiang Mai, Thailand',
     period: '2025 - Present',
     gpa: '',
@@ -15,7 +15,7 @@ const education = [
   {
     degree: 'Chiang Mai University Demonstration School',
     school: '',
-    faculty: 'Sciences and Mathematics Program',
+    faculty: 'High School Diploma, Science and Mathematics Program',
     location: 'Chiang Mai, Thailand',
     period: '2019 - 2024',
     gpa: '',

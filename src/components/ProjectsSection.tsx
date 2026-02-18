@@ -37,7 +37,7 @@ const projects = [
     title: 'Smart Deck Management',
     description: 'Facilitates table arrangement using 2D/3D models generated from scans or manual input.',
     tags: ['Hylife Hackathon 2025'],
-    image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop',
+    image: '#',
     github: '#',
     live: '#',
     featured: false,

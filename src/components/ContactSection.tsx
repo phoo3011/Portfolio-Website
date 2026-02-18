@@ -9,8 +9,7 @@ const socialLinks = [
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'phooriwat3011@gmail.com', href: 'mailto:phooriwat3011@gmail.com' },
-  { icon: Phone, label: 'Phone', value: '+66 98 952 6051', href: 'tel:+66989526051' },
-  { icon: MapPin, label: 'Location', value: 'Chiang Mai, Thailand', href: '#' },
+  { icon: Phone, label: 'Phone', value: '(+66) 98 952 6051', href: 'tel:+66989526051' },
 ];
 
 const ContactSection = () => {
