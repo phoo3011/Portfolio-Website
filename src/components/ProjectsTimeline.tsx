@@ -3,19 +3,27 @@ import { Layers, Calendar } from 'lucide-react';
 
 const projects = [
   {
-    name: 'UX/UI Foundation Program by TCCtech',
-    organization: 'TCCtech',
-    location: 'Thailand',
-    period: '2025',
-    description: 'A foundational UX/UI program covering user-centered design and hands-on interface design workshops.',
-    highlights: [],
-  },
-  {
     name: 'Crafting World-Class UX/UI with Irene Pereyra',
-    organization: 'Design Workshop',
+    organization: 'CAMT, CMU',
     location: 'Thailand',
     period: '2026',
     description: 'UX/UI design talk on world-class design principles and real-world best practices.',
+    highlights: [],
+  },
+  {
+    name: 'Young DEV CAMT 2026 [STAFF]',
+    organization: 'CAMT, CMU',
+    location: 'Thailand',
+    period: '2026',
+    description: 'Provided hands-on guidance to workshop participants.',
+    highlights: [],
+  },
+  {
+    name: 'UX/UI Foundation Program by T.C.C. Technology',
+    organization: 'CAMT, CMU',
+    location: 'Thailand',
+    period: '2025',
+    description: 'A foundational UX/UI program covering user-centered design and hands-on interface design workshops.',
     highlights: [],
   },
 ];

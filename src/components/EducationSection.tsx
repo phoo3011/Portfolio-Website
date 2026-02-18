@@ -5,7 +5,7 @@ const education = [
   {
     degree: 'Chiang Mai University',
     school: '',
-    faculty: 'College of Arts Media and Technology (CAMT), Digital Industry Integration (DII)',
+    faculty: 'College of Arts, Media and Technology (CAMT), Digital Industry Integration (DII)',
     location: 'Chiang Mai, Thailand',
     period: '2025 - Present',
     gpa: '',

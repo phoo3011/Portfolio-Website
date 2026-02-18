@@ -27,7 +27,6 @@ const experiences = [
     highlights: ['Built component library', 'A/B testing integration', 'Mobile-first development'],
   },
 ];
-
 const ExperienceSection = () => {
   return (
     <section id="experience" className="relative py-24 px-6">
