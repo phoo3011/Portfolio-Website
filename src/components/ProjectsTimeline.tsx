@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Layers, Calendar } from 'lucide-react';
+import { Layers, Calendar} from 'lucide-react';
 
 const projects = [
   {

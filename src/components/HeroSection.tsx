@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
-import { Github, Linkedin, Twitter, Download, MapPin } from 'lucide-react';
+import { Github, Linkedin, Twitter, Download, MapPin, FileText } from 'lucide-react';
 import { useRef } from 'react';
 
 const DevfolioIcon = () => (
@@ -23,6 +23,7 @@ const DevfolioIcon = () => (
 );
 
 const socialLinks = [
+  { icon: FileText, href: 'https://phoo3011.my.canva.site/', label: 'Resume' },
   { icon: Github, href: 'https://github.com/phoo3011', label: 'GitHub' },
   { icon: Linkedin, href: 'https://www.linkedin.com/in/phoo3011/', label: 'LinkedIn' },
   { icon: DevfolioIcon, href: 'https://devfolio.co/@phoo3011', label: 'Devfolio' },
