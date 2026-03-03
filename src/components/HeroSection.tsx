@@ -23,7 +23,7 @@ const DevfolioIcon = () => (
 );
 
 const socialLinks = [
-  { icon: FileText, href: 'https://phoo3011.my.canva.site/', label: 'Resume' },
+  { icon: FileText, href: 'https://www.canva.com/design/DAG-GM17ks0/pMDkHbJecxXC5WZOOUTDbA/view', label: 'Resume' },
   { icon: Github, href: 'https://github.com/phoo3011', label: 'GitHub' },
   { icon: Linkedin, href: 'https://www.linkedin.com/in/phoo3011/', label: 'LinkedIn' },
   { icon: DevfolioIcon, href: 'https://devfolio.co/@phoo3011', label: 'Devfolio' },
