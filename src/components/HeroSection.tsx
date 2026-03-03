@@ -121,7 +121,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-sm text-muted-foreground mb-3 tracking-wider"
             >
-              👋 Hello, I'm
+              Hello, I'm
             </motion.p>
 
             {/* Name */}
