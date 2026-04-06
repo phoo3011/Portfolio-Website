@@ -3,7 +3,7 @@ import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Relief Mesh | Winner (Localism, Future Light (Student Prize)',
+    title: 'Relief Mesh | Winner - Localism, Future Light (Student Prize)',
     description: 'Decentralized disaster relief platform enabling offline SOS communication.',
     organization: 'ETHChiangmai Hackathon 2026',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'MetaMask', 'P2P Networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
