@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
 
 const projects = [
   {
     title: 'Relief Mesh | Winner - Localism, Future Light (Student Prize)',
     description: 'Decentralized disaster relief platform enabling offline SOS communication.',
     organization: 'ETHChiangmai Hackathon 2026',
+    category: 'Competition',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'MetaMask', 'P2P Networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
     image: '/Relief%20Mesh.jpg',
     github: 'https://github.com/phoo3011/ReliefMesh-TeamUIA',
@@ -17,6 +19,7 @@ const projects = [
     title: 'Provincial CCTV Dashboard & AI',
     description: 'System dashboard for monitoring camera information and displaying critical alerts, featuring person and vehicle detection.',
     organization: 'Chiang Mai Provincial Office',
+    category: 'Production',
     tags: ['PHP', 'MySQL', 'HTML', 'JavaScript', 'Tailwind CSS'],
     image: '/Dashboard%20-%20Chiang%20Mai%20Provincial%20Office.jpg',
     github: 'https://github.com/phoo3011/Dashboard-Provincial.git',
@@ -27,6 +30,7 @@ const projects = [
     title: 'Impact Exchange',
     description: 'Chiang Mai community platform for cashless skill sharing.',
     organization: 'Shakesphere x Nomad Summit Buildathon 2026',
+    category: 'Competition',
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
     image: '/Impact%20Exchange.jpg',
     github: '#',
@@ -34,28 +38,40 @@ const projects = [
     featured: true,
   },
   {
-    title: 'Smart Deck Management',
-    description: 'Facilitates table arrangement using 2D/3D models generated from scans or manual input.',
-    tags: ['Hylife Hackathon 2025'],
-    image: '#',
-    github: '#',
-    live: '#',
-    featured: false,
-  },
-  {
     title: 'Smart Accounting and Management',
     description: 'Web-based POS and accounting management system.',
-    tags: ['Ban Mae Hoi Ngoen School'],
+    organization: 'Ban Mae Hoi Ngoen School',
+    category: 'Academic',
+    tags: ['HTML', 'CSS', 'JavaScript'],
     image: '/Smart%20Accounting%20and%20Management.jpg',
     github: 'https://github.com/phoo3011/My-Shop.git',
     live: '/Smart%20Accounting%20and%20Management.mp4',
-    featured: false,
+    featured: true,
+  },
+  {
+    title: 'Smart Deck Management',
+    description: 'Facilitates table arrangement using 2D/3D models generated from scans or manual input.',
+    organization: 'Hylife Hackathon 2025',
+    category: 'Competition',
+    tags: [],
+    image: '/Smart%20Deck%20Management.jpg',
+    github: '#',
+    live: '#',
+    featured: true,
   },
 ];
 
+const categories = ['All', 'Production', 'Competition', 'Academic', 'Personal'];
+
 const ProjectsSection = () => {
-  const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const filteredProjects = selectedCategory === 'All' 
+    ? projects 
+    : projects.filter(p => p.category === selectedCategory);
+
+  const featuredProjects = filteredProjects.filter(p => p.featured);
+  const otherProjects = filteredProjects.filter(p => !p.featured);
 
   return (
     <section id="projects" className="relative py-24 px-6">
@@ -75,9 +91,51 @@ const ProjectsSection = () => {
           </h3>
         </motion.div>
 
+        {/* Category Filter Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-3 mb-16"
+        >
+          {categories.map((category, index) => (
+            <motion.button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`
+                px-4 py-2 rounded-full font-mono text-sm transition-all duration-300
+                ${selectedCategory === category
+                  ? 'bg-foreground text-background shadow-lg shadow-foreground/20'
+                  : 'bg-secondary/50 text-foreground hover:bg-secondary border border-border/50 hover:border-foreground/30'
+                }
+              `}
+            >
+              {category}
+            </motion.button>
+          ))}
+        </motion.div>
+
         {/* Featured Projects - Large Cards */}
         <div className="space-y-8 mb-16">
-          {featuredProjects.map((project, index) => (
+          {featuredProjects.length === 0 ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-center py-12"
+            >
+              <p className="text-muted-foreground">No featured projects in this category.</p>
+            </motion.div>
+          ) : (
+            featuredProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
@@ -134,21 +192,23 @@ const ProjectsSection = () => {
                   )}
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag, tagIndex) => (
-                      <motion.span
-                        key={tag}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: tagIndex * 0.05, duration: 0.3 }}
-                        viewport={{ once: true }}
-                        whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(255,255,255,0.2)' }}
-                        className="px-3 py-1 text-xs font-mono bg-secondary rounded-full text-secondary-foreground cursor-pointer transition-all"
-                      >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </div>
+                  {project.tags.filter(Boolean).length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.filter(Boolean).map((tag, tagIndex) => (
+                        <motion.span
+                          key={tag}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: tagIndex * 0.05, duration: 0.3 }}
+                          viewport={{ once: true }}
+                          whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(255,255,255,0.2)' }}
+                          className="px-3 py-1 text-xs font-mono bg-secondary rounded-full text-secondary-foreground cursor-pointer transition-all"
+                        >
+                          {tag}
+                        </motion.span>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Links */}
                   <div className="flex gap-4">
@@ -168,20 +228,22 @@ const ProjectsSection = () => {
                         Code
                       </motion.a>
                     )}
-                    <motion.a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(255,255,255,0.3)' }}
-                      whileTap={{ scale: 0.9 }}
-                      transition={{ type: 'spring', stiffness: 400 }}
-                      className="flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-full font-mono text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all"
-                    >
-                      <motion.div animate={{ x: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                        <ExternalLink className="w-4 h-4" />
-                      </motion.div>
-                      Live Demo
-                    </motion.a>
+                    {project.live && project.live !== '#' && (
+                      <motion.a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(255,255,255,0.3)' }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: 'spring', stiffness: 400 }}
+                        className="flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-full font-mono text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all"
+                      >
+                        <motion.div animate={{ x: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                          <ExternalLink className="w-4 h-4" />
+                        </motion.div>
+                        Live Demo
+                      </motion.a>
+                    )}
                     {project.visit && (
                       <motion.a
                         href={project.visit}
@@ -202,104 +264,120 @@ const ProjectsSection = () => {
                 </div>
               </div>
             </motion.div>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Other Projects - Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-8"
-        >
-          <h4 className="font-mono text-center text-sm text-muted-foreground mb-8 tracking-widest uppercase">
-            Other Projects
-          </h4>
-        </motion.div>
+        {otherProjects.length > 0 && (
+          <div className="space-y-12">
+            {categories.filter(cat => cat !== 'All').map((category) => {
+              const categoryProjects = otherProjects.filter(p => p.category === category);
+              if (categoryProjects.length === 0) return null;
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {otherProjects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30, rotate: -5 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1, type: 'spring' }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10, rotate: 2, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
-              className="group card-gradient border border-border/50 rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300 cursor-pointer flex flex-col justify-between h-full"
-            >
-              <motion.div 
-                className="flex items-start justify-between mb-4 min-h-[32px]"
-                whileHover={{ x: 5 }}
-              >
-                <div className="flex gap-3">
-                  {project.github && project.github !== '#' && (
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-2 hover:text-foreground text-muted-foreground transition-colors"
-                    >
-                      <Github className="w-5 h-5" />
-                    </motion.a>
-                  )}
-                  {project.live && project.live !== '#' && (
-                    <motion.a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      whileHover={{ scale: 1.2, rotate: -10 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-2 hover:text-foreground text-muted-foreground transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </motion.a>
-                  )}
-                </div>
-                <motion.div
-                  animate={{ x: [0, 2, 0], y: [0, -2, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-all" />
-                </motion.div>
-              </motion.div>
-
-              <motion.h5 
-                className="text-xl font-bold mb-2 group-hover:text-glow transition-all font-spartan"
-                whileHover={{ scale: 1.05 }}
-              >
-                {project.title}
-              </motion.h5>
-              <motion.p 
-                className="text-sm text-muted-foreground mb-4 line-clamp-2 font-lato min-h-[48px]"
-                whileHover={{ color: 'rgb(255,255,255,0.8)' }}
-              >
-                {project.description}
-              </motion.p>
-
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, tagIndex) => (
-                  <motion.span
-                    key={tag}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: tagIndex * 0.05 }}
+              return (
+                <div key={category}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, x: 2 }}
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                    className="mb-8"
                   >
-                    {tag}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                    <h4 className="font-mono text-center text-sm text-muted-foreground mb-8 tracking-widest uppercase">
+                      {category} Projects
+                    </h4>
+                  </motion.div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-12">
+                    {categoryProjects.map((project, index) => (
+                      <motion.div
+                        key={project.title}
+                        initial={{ opacity: 0, y: 30, rotate: -5 }}
+                        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1, type: 'spring' }}
+                        viewport={{ once: true }}
+                        whileHover={{ y: -10, rotate: 2, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
+                        className="group card-gradient border border-border/50 rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300 cursor-pointer flex flex-col justify-between h-full"
+                      >
+                        <motion.div 
+                          className="flex items-start justify-between mb-4 min-h-[32px]"
+                          whileHover={{ x: 5 }}
+                        >
+                          <div className="flex gap-3">
+                            {project.github && project.github !== '#' && (
+                              <motion.a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                whileHover={{ scale: 1.2, rotate: 10 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="p-2 hover:text-foreground text-muted-foreground transition-colors"
+                              >
+                                <Github className="w-5 h-5" />
+                              </motion.a>
+                            )}
+                            {project.live && project.live !== '#' && (
+                              <motion.a
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                whileHover={{ scale: 1.2, rotate: -10 }}
+                                whileTap={{ scale: 0.9 }}
+                                className="p-2 hover:text-foreground text-muted-foreground transition-colors"
+                              >
+                                <ExternalLink className="w-5 h-5" />
+                              </motion.a>
+                            )}
+                          </div>
+                          <motion.div
+                            animate={{ x: [0, 2, 0], y: [0, -2, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-all" />
+                          </motion.div>
+                        </motion.div>
+
+                        <motion.h5 
+                          className="text-xl font-bold mb-2 group-hover:text-glow transition-all font-spartan"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          {project.title}
+                        </motion.h5>
+                        <motion.p 
+                          className="text-sm text-muted-foreground mb-4 line-clamp-2 font-lato min-h-[48px]"
+                          whileHover={{ color: 'rgb(255,255,255,0.8)' }}
+                        >
+                          {project.description}
+                        </motion.p>
+
+                        {project.tags.filter(Boolean).length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {project.tags.filter(Boolean).map((tag, tagIndex) => (
+                              <motion.span
+                                key={tag}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ delay: tagIndex * 0.05 }}
+                                viewport={{ once: true }}
+                                whileHover={{ scale: 1.1, x: 2 }}
+                                className="text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                              >
+                                {tag}
+                              </motion.span>
+                            ))}
+                          </div>
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Scroll Indicator */}

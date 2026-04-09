@@ -12,6 +12,15 @@ type Project = {
 };
 
 const projects: Project[] = [
+      {
+    name: 'Data Storytelling & Dashboard Design by Zygen',
+    organization: 'CAMT, CMU',
+    location: 'Thailand',
+    period: '2026',
+    description: 'A UX/UI and Data Workshop on driving business insights through storytelling and dashboards.',
+    highlights: [],
+    link: 'https://www.facebook.com/CAMTOfficial/posts/pfbid02rVMJfXTM2VDuDocFUN88kWsqGq5JiYHEqBQh86x3PREdyeNq8UgdvP89cKGZAUupl?rdid=uvwfltcY3BihcNll#',
+  },
   {
     name: 'Crafting World-Class UX/UI with Irene Pereyra',
     organization: 'CAMT, CMU',
@@ -22,7 +31,7 @@ const projects: Project[] = [
     link: 'https://www.facebook.com/story.php?story_fbid=pfbid0vES4ztuioq19bs1TFAubYLeu83n1J1PGcg8aUjVcrhLbjuWG65XuWt7YH5RmvyCHl&id=100064686758968&_rdr',
   },
   {
-    name: 'Young DEV CAMT 2026 [STAFF]',
+    name: 'Young DEV CAMT 2026 (STAFF)',
     organization: 'CAMT, CMU',
     location: 'Thailand',
     period: '2026',
@@ -77,13 +86,22 @@ const ProjectsTimeline = () => {
               <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-foreground rounded-full transform -translate-x-1/2 border-4 border-background z-10" />
 
               <div className={`relative flex-1 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'} pl-8 md:pl-0`}>
-                <div className="card-gradient border border-border/50 rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300">
+                <motion.div
+                  className="group card-gradient border border-border/50 rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300"
+                  whileHover={{ y: -10, rotate: index % 2 === 0 ? -1.5 : 1.5, boxShadow: '0 20px 40px rgba(0,0,0,0.3)' }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                >
                   <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Calendar className="w-4 h-4 text-muted-foreground" />
                     <span className="font-spartan text-sm text-muted-foreground">{project.period}</span>
                   </div>
 
-                  <h4 className="text-xl font-bold mb-1 font-spartan">{project.name}</h4>
+                  <motion.h4
+                    className="text-xl font-bold mb-1 font-spartan group-hover:text-glow transition-all"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    {project.name}
+                  </motion.h4>
 
                   <div className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Layers className="w-4 h-4 text-primary/60" />
@@ -92,21 +110,29 @@ const ProjectsTimeline = () => {
                     <span className="font-mono text-sm text-muted-foreground">{project.location}</span>
                   </div>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  <motion.p
+                    className="text-muted-foreground text-sm leading-relaxed mb-4"
+                    whileHover={{ color: 'rgb(255,255,255,0.82)' }}
+                  >
                     {project.description}
-                  </p>
+                  </motion.p>
 
                   <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     {project.highlights.map((highlight) => (
-                      <span
+                      <motion.span
                         key={highlight}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.08, boxShadow: '0 0 15px rgba(255,255,255,0.2)' }}
                         className="px-3 py-1 text-xs font-mono bg-secondary rounded-full text-secondary-foreground"
                       >
                         {highlight}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* View button */}
                 <div
