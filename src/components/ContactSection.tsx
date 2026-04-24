@@ -8,8 +8,8 @@ const socialLinks = [
 ];
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'phooriwat3011@gmail.com', href: 'mailto:phooriwat3011@gmail.com' },
-  { icon: Phone, label: 'Phone', value: '(+66) 98 952 6051', href: 'tel:+66989526051' },
+  { icon: Mail, label: 'Email', value: 'phooriwat3011@gmail.com' },
+  { icon: Phone, label: 'Phone', value: '(+66) 98 952 6051' },
 ];
 
 const ContactSection = () => {
@@ -43,17 +43,14 @@ const ContactSection = () => {
             <h4 className="text-2xl font-semibold mb-6 font-spartan">Contact Information</h4>
             
             {contactInfo.map((info, index) => (
-              <motion.a
+              <motion.div
                 key={info.label}
-                href={info.href}
-                target={info.href.startsWith('mailto:') || info.href.startsWith('tel:') ? undefined : '_blank'}
-                rel={info.href.startsWith('mailto:') || info.href.startsWith('tel:') ? undefined : 'noopener noreferrer'}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ x: 5 }}
-                className="flex items-center gap-4 p-4 card-gradient border border-border/50 rounded-xl hover:border-foreground/20 transition-all group"
+                whileHover={{ x: 0 }}
+                className="flex items-center gap-4 p-4 card-gradient border border-border/50 rounded-xl transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-foreground/10 transition-colors">
                   <info.icon className="w-5 h-5 text-foreground" />
@@ -64,7 +61,7 @@ const ContactSection = () => {
                   </p>
                   <p className="font-medium font-lato">{info.value}</p>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
 
             
