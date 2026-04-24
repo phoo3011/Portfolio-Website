@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const links = [
-    { name: 'Profile', href: '#about' },
+    { name: 'Profile', href: '#profile' },
     { name: 'Projects', href: '#projects' },
     { name: 'Activities', href: '#activities' },
     { name: 'Education', href: '#education' },
@@ -18,7 +18,7 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/50"
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="font-mono text-xl font-bold tracking-wider text-glow">
+        <a href="#" className="font-marcellus text-2xl font-bold tracking-wider text-glow">
           Portfolio
         </a>
 
@@ -27,7 +27,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="font-marcellus text-base text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {link.name}
             </a>

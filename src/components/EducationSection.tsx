@@ -40,10 +40,10 @@ const EducationSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
+          <h2 className="font-merriweather text-sm text-muted-foreground mb-4 tracking-widest uppercase">
             ABOUT ME
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
+          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-marcellus">
             Education
           </h3>
         </motion.div>
@@ -70,14 +70,14 @@ const EducationSection = () => {
                     <div className="flex items-center gap-3">
                       <GraduationCap className="w-6 h-6 text-primary flex-shrink-0" />
                       <div>
-                        <h4 className="text-xl font-bold font-spartan">{edu.degree}</h4>
+                        <h4 className="text-xl font-bold font-marcellus">{edu.degree}</h4>
                         {edu.school && <p className="text-muted-foreground font-mono text-sm">{edu.school}</p>}
-                        {edu.faculty && <p className="text-muted-foreground/80 text-base font-lato mt-1">{edu.faculty}</p>}
+                        {edu.faculty && <p className="text-muted-foreground/80 text-base font-sfpro mt-1">{edu.faculty}</p>}
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground font-spartan text-sm md:ml-auto flex-shrink-0">
+                    <div className="flex items-center gap-2 text-muted-foreground font-merriweather text-sm md:ml-auto flex-shrink-0">
                       <Calendar className="w-4 h-4" />
-                      <span>{edu.period}</span>
+                      <span className="relative top-[2px]">{edu.period}</span>
                     </div>
                   </div>
 

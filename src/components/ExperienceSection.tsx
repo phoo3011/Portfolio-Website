@@ -38,10 +38,10 @@ const ExperienceSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
+          <h2 className="font-merriweather text-sm text-muted-foreground mb-4 tracking-widest uppercase">
             Career Path
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
+          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-marcellus">
             Work Experience
           </h3>
         </motion.div>
@@ -75,7 +75,7 @@ const ExperienceSection = () => {
                   </div>
 
                   {/* Role & Company */}
-                  <h4 className="text-xl font-bold mb-1 font-spartan">{exp.role}</h4>
+                  <h4 className="text-xl font-bold mb-1 font-marcellus">{exp.role}</h4>
                   <div className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Briefcase className="w-4 h-4 text-primary/60" />
                     <span className="font-mono text-sm text-muted-foreground">{exp.company}</span>

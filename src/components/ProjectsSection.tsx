@@ -83,10 +83,10 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
+          <h2 className="font-merriweather text-sm text-muted-foreground mb-4 tracking-widest uppercase">
             ABOUT ME
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
+          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-marcellus">
             Projects
           </h3>
         </motion.div>
@@ -110,7 +110,7 @@ const ProjectsSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={`
-                px-4 py-2 rounded-full font-mono text-sm transition-all duration-300
+                px-4 py-2 rounded-full font-merriweather text-sm transition-all duration-300
                 ${selectedCategory === category
                   ? 'bg-foreground text-background shadow-lg shadow-foreground/20'
                   : 'bg-secondary/50 text-foreground hover:bg-secondary border border-border/50 hover:border-foreground/30'
@@ -176,17 +176,17 @@ const ProjectsSection = () => {
 
                 {/* Content */}
                 <div className={index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}>
-                  <span className="font-mono text-xs text-muted-foreground tracking-wider uppercase">
+                  <span className="font-merriweather text-xs text-muted-foreground tracking-wider uppercase">
                     Featured Project
                   </span>
-                  <h4 className="text-2xl md:text-3xl font-bold mt-2 mb-4 group-hover:text-glow transition-all font-spartan">
+                  <h4 className="text-2xl md:text-3xl font-bold mt-2 mb-4 group-hover:text-glow transition-all font-marcellus">
                     {project.title}
                   </h4>
-                  <p className="text-muted-foreground leading-relaxed mb-6 font-lato">
+                  <p className="text-muted-foreground leading-relaxed mb-6 font-sfpro">
                     {project.description}
                   </p>
                   {project.organization && (
-                    <p className="text-xs text-muted-foreground mb-4">
+                    <p className="text-xs text-muted-foreground mb-4 font-merriweather">
                       {project.organization}
                     </p>
                   )}
@@ -220,12 +220,12 @@ const ProjectsSection = () => {
                         whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(255,255,255,0.2)' }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ type: 'spring', stiffness: 400 }}
-                        className="flex items-center gap-2 px-4 py-2 border border-border rounded-full font-mono text-sm hover:bg-secondary transition-all group"
+                        className="flex items-center gap-1.5 px-3.5 py-2 border border-border rounded-full font-mono text-sm hover:bg-secondary transition-all group"
                       >
                         <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}>
                           <Github className="w-4 h-4" />
                         </motion.div>
-                        Code
+                        <span className="font-sfsymbols leading-none">Code</span>
                       </motion.a>
                     )}
                     {project.live && project.live !== '#' && (
@@ -236,12 +236,12 @@ const ProjectsSection = () => {
                         whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(255,255,255,0.3)' }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ type: 'spring', stiffness: 400 }}
-                        className="flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-full font-mono text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all"
+                        className="flex items-center gap-1.5 px-3.5 py-2 bg-foreground text-background rounded-full font-mono text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all"
                       >
                         <motion.div animate={{ x: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                           <ExternalLink className="w-4 h-4" />
                         </motion.div>
-                        Live Demo
+                        <span className="font-sfsymbols leading-none">Live Demo</span>
                       </motion.a>
                     )}
                     {project.visit && (
@@ -252,12 +252,12 @@ const ProjectsSection = () => {
                         whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(255,255,255,0.3)' }}
                         whileTap={{ scale: 0.9 }}
                         transition={{ type: 'spring', stiffness: 400 }}
-                        className="flex items-center gap-2 px-4 py-2 bg-foreground text-background rounded-full font-mono text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all"
+                        className="flex items-center gap-1.5 px-3.5 py-2 bg-foreground text-background rounded-full font-mono text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all"
                       >
                         <motion.div animate={{ rotate: [0, 45, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                           <ArrowUpRight className="w-4 h-4" />
                         </motion.div>
-                        Visit Site
+                        <span className="font-sfsymbols leading-none">Visit Site</span>
                       </motion.a>
                     )}
                   </div>
@@ -341,13 +341,13 @@ const ProjectsSection = () => {
                         </motion.div>
 
                         <motion.h5 
-                          className="text-xl font-bold mb-2 group-hover:text-glow transition-all font-spartan"
+                          className="text-xl font-bold mb-2 group-hover:text-glow transition-all font-marcellus"
                           whileHover={{ scale: 1.05 }}
                         >
                           {project.title}
                         </motion.h5>
                         <motion.p 
-                          className="text-sm text-muted-foreground mb-4 line-clamp-2 font-lato min-h-[48px]"
+                          className="text-sm text-muted-foreground mb-4 line-clamp-2 font-sfpro min-h-[48px]"
                           whileHover={{ color: 'rgb(255,255,255,0.8)' }}
                         >
                           {project.description}

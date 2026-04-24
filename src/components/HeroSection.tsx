@@ -119,7 +119,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-sm text-muted-foreground mb-3 tracking-wider"
+              className="text-sm text-muted-foreground mb-3 tracking-wider font-merriweather"
             >
               Hello, I'm
             </motion.p>
@@ -129,7 +129,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight whitespace-nowrap font-spartan"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight whitespace-nowrap font-marcellus"
             >
               <motion.span 
                 className="text-glow inline-block"
@@ -147,7 +147,7 @@ const HeroSection = () => {
               className="mb-4"
               whileHover={{ scale: 1.02 }}
             >
-              <span className="text-xl md:text-2xl gradient-text font-medium font-lato">
+              <span className="text-xl md:text-2xl gradient-text font-medium font-merriweather">
                 Student at Chiang Mai University
               </span>
             </motion.div>
@@ -162,7 +162,7 @@ const HeroSection = () => {
               <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity }}>
                 <MapPin className="w-4 h-4 text-muted-foreground" />
               </motion.div>
-              <span className="text-sm text-muted-foreground">Chiang Mai, Thailand</span>
+              <span className="text-sm text-muted-foreground font-merriweather">Chiang Mai, Thailand</span>
             </motion.div>
 
 
@@ -177,7 +177,7 @@ const HeroSection = () => {
                 href="#contact"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255,255,255,0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-foreground text-background font-mono text-sm rounded-full hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
+                className="inline-flex items-center justify-center px-4 py-2 bg-foreground text-background font-sfsymbols text-sm leading-none rounded-full hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all"
               >
                 Contact
               </motion.a>

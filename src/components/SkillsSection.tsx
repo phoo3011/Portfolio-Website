@@ -12,7 +12,7 @@ const skillCategories = [
   },
   {
     title: 'Soft Skills',
-    skills: ['Critical Thinking', 'Emotional Intelligence', 'Growth Mindset', 'Time Management', 'Etc.'],
+    skills: ['Critical Thinking', 'Emotional Intelligence', 'Growth Mindset', 'Time Management', 'etc.'],
   },
   {
     title: 'Languages',
@@ -31,10 +31,10 @@ const SkillsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
+          <h2 className="font-merriweather text-sm text-muted-foreground mb-4 tracking-widest uppercase">
             ABOUT ME
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
+          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-marcellus">
             Skills
           </h3>
         </motion.div>
@@ -50,7 +50,7 @@ const SkillsSection = () => {
               viewport={{ once: true }}
               className="card-gradient border border-border/50 rounded-2xl p-6 min-w-0"
             >
-              <h4 className="text-2xl font-semibold mb-6 text-center font-spartan">
+              <h4 className="text-2xl font-semibold mb-6 text-center font-marcellus">
                 {category.title}
               </h4>
               <div className="space-y-3">
@@ -68,7 +68,7 @@ const SkillsSection = () => {
                       className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary/50 transition-colors group overflow-x-auto scrollbar-custom"
                     >
                       <div className="w-2 h-2 rounded-full bg-foreground/60 group-hover:bg-foreground transition-colors flex-shrink-0" />
-                      <span className="font-lato text-sm text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                      <span className="font-sfpro text-sm text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                         {value ? (
                           <>
                             <span className="font-bold">{label}:</span> {value}

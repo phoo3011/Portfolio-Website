@@ -23,10 +23,10 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
+          <h2 className="font-merriweather text-sm text-muted-foreground mb-4 tracking-widest uppercase">
             ABOUT ME
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold gradient-text mb-6 font-spartan">
+          <h3 className="text-3xl md:text-5xl font-bold gradient-text mb-6 font-marcellus">
             Contact
           </h3>
         </motion.div>
@@ -40,7 +40,7 @@ const ContactSection = () => {
             viewport={{ once: true }}
             className="space-y-6 w-full max-w-xl"
           >
-            <h4 className="text-2xl font-semibold mb-6 font-spartan">Contact Information</h4>
+            <h4 className="text-2xl font-semibold mb-6 font-marcellus">Contact Information</h4>
             
             {contactInfo.map((info, index) => (
               <motion.div
@@ -56,10 +56,10 @@ const ContactSection = () => {
                   <info.icon className="w-5 h-5 text-foreground" />
                 </div>
                 <div>
-                  <p className="text-xs font-spartan text-muted-foreground uppercase tracking-wider">
+                  <p className="text-xs font-marcellus text-muted-foreground uppercase tracking-wider">
                     {info.label}
                   </p>
-                  <p className="font-medium font-lato">{info.value}</p>
+                  <p className="font-medium font-sfpro">{info.value}</p>
                 </div>
               </motion.div>
             ))}

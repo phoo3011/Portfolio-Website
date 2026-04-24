@@ -61,10 +61,10 @@ const ProjectsTimeline = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-mono text-sm text-muted-foreground mb-4 tracking-widest uppercase">
+          <h2 className="font-merriweather text-sm text-muted-foreground mb-4 tracking-widest uppercase">
             ABOUT ME
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-spartan">
+          <h3 className="text-3xl md:text-5xl font-bold gradient-text font-marcellus">
             Activities
           </h3>
         </motion.div>
@@ -93,11 +93,11 @@ const ProjectsTimeline = () => {
                 >
                   <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Calendar className="w-4 h-4 text-muted-foreground" />
-                    <span className="font-spartan text-sm text-muted-foreground">{project.period}</span>
+                    <span className="relative top-[2px] font-merriweather text-sm text-muted-foreground">{project.period}</span>
                   </div>
 
                   <motion.h4
-                    className="text-xl font-bold mb-1 font-spartan group-hover:text-glow transition-all"
+                    className="text-xl font-bold mb-1 font-marcellus group-hover:text-glow transition-all"
                     whileHover={{ scale: 1.02 }}
                   >
                     {project.name}
@@ -105,13 +105,13 @@ const ProjectsTimeline = () => {
 
                   <div className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Layers className="w-4 h-4 text-primary/60" />
-                    <span className="font-mono text-sm text-muted-foreground">{project.organization}</span>
+                    <span className="font-merriweather text-sm text-muted-foreground">{project.organization}</span>
                     <span className="text-muted-foreground">•</span>
-                    <span className="font-mono text-sm text-muted-foreground">{project.location}</span>
+                    <span className="font-merriweather text-sm text-muted-foreground">{project.location}</span>
                   </div>
 
                   <motion.p
-                    className="text-muted-foreground text-sm leading-relaxed mb-4"
+                    className="text-muted-foreground text-sm leading-relaxed mb-4 font-sfpro"
                     whileHover={{ color: 'rgb(255,255,255,0.82)' }}
                   >
                     {project.description}
@@ -146,7 +146,7 @@ const ProjectsTimeline = () => {
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-mono font-medium text-zinc-900 shadow-sm transition-all duration-300 hover:shadow-md group"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-sm font-mono font-medium text-zinc-900 shadow-sm transition-all duration-300 hover:shadow-md group"
                     whileHover={{ scale: 0.92 }}
                     whileTap={{ scale: 0.88 }}
                   >
@@ -161,7 +161,7 @@ const ProjectsTimeline = () => {
                     >
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </motion.span>
-                    <motion.span whileHover={{ scale: 1.087 }}>View</motion.span>
+                    <motion.span className="font-sfsymbols font-normal leading-none" whileHover={{ scale: 1.087 }}>View</motion.span>
                   </motion.a>
                 </div>
               </div>
