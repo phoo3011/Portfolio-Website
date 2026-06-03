@@ -4,11 +4,12 @@ import { useState } from 'react';
 
 const projects = [
   {
-    title: 'Relief Mesh | Winner - Localism, Future Light (Student Prize)',
+    title: 'Relief Mesh',
     description: 'Decentralized disaster relief platform enabling offline SOS communication.',
     organization: 'ETHChiangmai Hackathon 2026',
     category: 'Competition',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Web3', 'Ethereum', 'MetaMask', 'P2P Networking', 'Leaflet'],
+    awards: ['🏆 Winner — Localism, Future Light'],
     image: '/Relief%20Mesh.jpg',
     github: 'https://github.com/phoo3011/ReliefMesh-TeamUIA',
     live: '/Relief%20Mesh%20-%20Team%20UIA.mp4',
@@ -21,6 +22,7 @@ const projects = [
     organization: 'Chiang Mai Provincial Office',
     category: 'Production',
     tags: ['PHP', 'MySQL', 'HTML', 'JavaScript', 'Tailwind CSS'],
+    awards: [],
     image: '/Dashboard%20-%20Chiang%20Mai%20Provincial%20Office.jpg',
     github: 'https://github.com/phoo3011/Dashboard-Provincial.git',
     live: 'Dashboard%20-%20Chiang%20Mai%20Provincial%20Office.mp4',
@@ -32,6 +34,7 @@ const projects = [
     organization: 'Shakesphere x Nomad Summit Buildathon 2026',
     category: 'Competition',
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
+    awards: [],
     image: '/Impact%20Exchange.jpg',
     github: '#',
     live: '/Impact%20Exchange.mp4',
@@ -43,6 +46,7 @@ const projects = [
     organization: 'Ban Mae Hoi Ngoen School',
     category: 'Academic',
     tags: ['HTML', 'CSS', 'JavaScript'],
+    awards: [],
     image: '/Smart%20Accounting%20and%20Management.jpg',
     github: 'https://github.com/phoo3011/My-Shop.git',
     live: '/Smart%20Accounting%20and%20Management.mp4',
@@ -54,6 +58,7 @@ const projects = [
     organization: 'Hylife Hackathon 2025',
     category: 'Competition',
     tags: [],
+    awards: [],
     image: '/Smart%20Deck%20Management.jpg',
     github: '#',
     live: '#',
@@ -171,9 +176,27 @@ const ProjectsSection = () => {
                 </motion.div>
 
                 <div className={index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}>
-                  <span className="font-merriweather text-xs text-muted-foreground tracking-wider uppercase">
-                    Featured Project
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="font-merriweather text-xs text-muted-foreground tracking-wider uppercase">
+                      {project.category ? `${project.category} Project` : 'Featured Project'}
+                    </span>
+                    {project.awards && project.awards.filter(Boolean).length > 0 && (
+                      <div className="flex gap-2 items-center flex-nowrap">
+                        {project.awards.filter(Boolean).map((award, i) => (
+                          <motion.span
+                            key={i}
+                            initial={{ opacity: 0, y: 6 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            viewport={{ once: true }}
+                            className="px-3 py-1 text-xs font-merriweather uppercase bg-amber-400 text-black rounded-full whitespace-nowrap overflow-hidden max-w-[40ch] truncate"
+                          >
+                            {award}
+                          </motion.span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                   <h4 className="text-2xl md:text-3xl font-bold mt-2 mb-4 group-hover:text-glow transition-all font-marcellus">
                     {project.title}
                   </h4>
@@ -185,6 +208,8 @@ const ProjectsSection = () => {
                       {project.organization}
                     </p>
                   )}
+
+                  
 
                   {project.tags.filter(Boolean).length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-6">
@@ -332,6 +357,28 @@ const ProjectsSection = () => {
                           </motion.div>
                         </motion.div>
 
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="font-merriweather text-xs text-muted-foreground tracking-wider uppercase">
+                            {project.category ? `${project.category} Project` : ''}
+                          </span>
+                          {project.awards && project.awards.filter(Boolean).length > 0 && (
+                            <div className="flex gap-2 items-center flex-nowrap">
+                              {project.awards.filter(Boolean).map((award, aIndex) => (
+                                <motion.span
+                                  key={aIndex}
+                                  initial={{ opacity: 0 }}
+                                  whileInView={{ opacity: 1 }}
+                                  transition={{ delay: aIndex * 0.03 }}
+                                  viewport={{ once: true }}
+                                  className="text-xs font-merriweather uppercase bg-amber-300 text-black px-2 py-0.5 rounded-full whitespace-nowrap overflow-hidden max-w-[36ch] truncate"
+                                >
+                                  {award}
+                                </motion.span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+
                         <motion.h5 
                           className="text-xl font-bold mb-2 group-hover:text-glow transition-all font-marcellus"
                           whileHover={{ scale: 1.05 }}
@@ -344,6 +391,9 @@ const ProjectsSection = () => {
                         >
                           {project.description}
                         </motion.p>
+
+                        
+
 
                         {project.tags.filter(Boolean).length > 0 && (
                           <div className="flex flex-wrap gap-2">
