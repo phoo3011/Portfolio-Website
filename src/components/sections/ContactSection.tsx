@@ -32,7 +32,6 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="flex justify-center">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -71,7 +70,6 @@ const ContactSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

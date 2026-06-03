@@ -12,26 +12,35 @@ type Project = {
 };
 
 const projects: Project[] = [
-      {
-    name: 'Data Storytelling & Dashboard Design by Zygen',
-    organization: 'CAMT, CMU',
-    location: 'Thailand',
+        {
+    name: 'Intelligent Automation',
+    organization: 'Zygen',
+    location: 'CAMT, CMU, Thailand',
+    period: '2026',
+    description: 'A hands-on workshop on intelligent automation, covering RPA, AI, LCAP, and real-world use cases.',
+    highlights: [],
+    link: 'https://www.facebook.com/CAMTOfficial/posts/pfbid0PD9D3QGiVi2PvCPP8BqU4sUMQGAvogVhJzRwMsFaZ3qxiSwSwGpaHuRJNKopt4ktl?rdid=42n1G9WkrcbyAQ78#',
+  },
+  {
+    name: 'Data Storytelling & Dashboard Design',
+    organization: 'Zygen',
+    location: 'CAMT, CMU, Thailand',
     period: '2026',
     description: 'A UX/UI and Data Workshop on driving business insights through storytelling and dashboards.',
     highlights: [],
     link: 'https://www.facebook.com/CAMTOfficial/posts/pfbid02rVMJfXTM2VDuDocFUN88kWsqGq5JiYHEqBQh86x3PREdyeNq8UgdvP89cKGZAUupl?rdid=uvwfltcY3BihcNll#',
   },
   {
-    name: 'Crafting World-Class UX/UI with Irene Pereyra',
-    organization: 'CAMT, CMU',
-    location: 'Thailand',
+    name: 'Crafting World-Class UX/UI',
+    organization: 'Irene Pereyra',
+    location: 'CAMT, CMU, Thailand',
     period: '2026',
     description: 'UX/UI design talk on world-class design principles and real-world best practices.',
     highlights: [],
     link: 'https://www.facebook.com/story.php?story_fbid=pfbid0vES4ztuioq19bs1TFAubYLeu83n1J1PGcg8aUjVcrhLbjuWG65XuWt7YH5RmvyCHl&id=100064686758968&_rdr',
   },
   {
-    name: 'Young DEV CAMT 2026 (STAFF)',
+    name: 'Young DEV CAMT (STAFF)',
     organization: 'CAMT, CMU',
     location: 'Thailand',
     period: '2026',
@@ -40,9 +49,9 @@ const projects: Project[] = [
     link: 'https://www.facebook.com/CAMTOfficial/posts/1309124051253808/',
   },
   {
-    name: 'UX/UI Foundation Program by T.C.C. Technology',
-    organization: 'CAMT, CMU',
-    location: 'Thailand',
+    name: 'UX/UI Foundation Program',
+    organization: 'T.C.C. Technology',
+    location: 'CAMT, CMU, Thailand',
     period: '2025',
     description: 'A foundational UX/UI program covering user-centered design and hands-on interface design workshops.',
     highlights: [],
@@ -50,7 +59,7 @@ const projects: Project[] = [
   },
 ];
 
-const ProjectsTimeline = () => {
+const ActivitiesSection = () => {
   return (
     <section id="activities" className="relative py-24 px-6">
       <div className="container mx-auto max-w-4xl">
@@ -97,7 +106,7 @@ const ProjectsTimeline = () => {
                   </div>
 
                   <motion.h4
-                    className="text-xl font-bold mb-1 font-marcellus group-hover:text-glow transition-all"
+                    className="mb-1 text-[1rem] font-bold leading-tight whitespace-nowrap font-marcellus group-hover:text-glow transition-all md:text-[1.1rem] lg:text-xl"
                     whileHover={{ scale: 1.02 }}
                   >
                     {project.name}
@@ -134,7 +143,6 @@ const ProjectsTimeline = () => {
                   </div>
                 </motion.div>
 
-                {/* View button */}
                 <div
                   className={`mt-3 md:mt-0 md:absolute md:top-[85%] md:-translate-y-1/2 z-20 ${
                     index % 2 === 0
@@ -195,4 +203,4 @@ const ProjectsTimeline = () => {
   );
 };
 
-export default ProjectsTimeline;
+export default ActivitiesSection;

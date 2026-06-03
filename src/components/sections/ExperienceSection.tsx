@@ -46,9 +46,7 @@ const ExperienceSection = () => {
           </h3>
         </motion.div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border transform md:-translate-x-1/2" />
 
           {experiences.map((exp, index) => (
@@ -62,19 +60,15 @@ const ExperienceSection = () => {
                 index % 2 === 0 ? 'md:flex-row-reverse' : ''
               }`}
             >
-              {/* Timeline dot */}
               <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-foreground rounded-full transform -translate-x-1/2 border-4 border-background z-10" />
 
-              {/* Content */}
               <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'} pl-8 md:pl-0`}>
                 <div className={`card-gradient border border-border/50 rounded-2xl p-6 hover:border-foreground/20 transition-all duration-300`}>
-                  {/* Period badge */}
                   <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Calendar className="w-4 h-4 text-muted-foreground" />
                     <span className="font-mono text-xs text-muted-foreground">{exp.period}</span>
                   </div>
 
-                  {/* Role & Company */}
                   <h4 className="text-xl font-bold mb-1 font-marcellus">{exp.role}</h4>
                   <div className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <Briefcase className="w-4 h-4 text-primary/60" />
@@ -83,12 +77,10 @@ const ExperienceSection = () => {
                     <span className="font-mono text-sm text-muted-foreground">{exp.location}</span>
                   </div>
 
-                  {/* Description */}
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                     {exp.description}
                   </p>
 
-                  {/* Highlights */}
                   <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                     {exp.highlights.map((highlight) => (
                       <span
@@ -102,7 +94,6 @@ const ExperienceSection = () => {
                 </div>
               </div>
 
-              {/* Spacer for alternate layout */}
               <div className="hidden md:block flex-1" />
             </motion.div>
           ))}

@@ -42,14 +42,12 @@ const HeroSection = () => {
   
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 dot-pattern opacity-20" />
       <motion.div 
         className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"
         style={{ opacity }}
       />
       
-      {/* Parallax Decorative circles with rotation */}
       <motion.div 
         className="absolute top-1/4 -left-32 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
         style={{ y: y1 }}
@@ -63,10 +61,8 @@ const HeroSection = () => {
         transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
       />
 
-      {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          {/* Left Side - Profile */}
           <motion.div
             initial={{ opacity: 0, x: -50, rotate: -5 }}
             animate={{ opacity: 1, x: 0, rotate: 0 }}
@@ -79,7 +75,6 @@ const HeroSection = () => {
               whileHover={{ y: -10 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
-              {/* Profile Image */}
               <motion.div 
                 className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-border/50 shadow-2xl"
                 whileHover={{ 
@@ -96,7 +91,6 @@ const HeroSection = () => {
                 />
               </motion.div>
               
-              {/* Animated ring around profile */}
               <motion.div 
                 className="absolute inset-0 border-2 border-transparent rounded-full pointer-events-none"
                 animate={{ 
@@ -107,14 +101,12 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Info */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center lg:text-left max-w-2xl"
           >
-            {/* Greeting */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -124,7 +116,6 @@ const HeroSection = () => {
               Hello, I'm
             </motion.p>
 
-            {/* Name */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -139,7 +130,6 @@ const HeroSection = () => {
               </motion.span>
             </motion.h1>
 
-            {/* Role */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -152,7 +142,6 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* Location */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -165,8 +154,6 @@ const HeroSection = () => {
               <span className="text-sm text-muted-foreground font-merriweather">Chiang Mai, Thailand</span>
             </motion.div>
 
-
-            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -183,7 +170,6 @@ const HeroSection = () => {
               </motion.a>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -215,7 +201,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Animated Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

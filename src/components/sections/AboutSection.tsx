@@ -51,7 +51,6 @@ const AboutSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left - Description */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -62,7 +61,6 @@ const AboutSection = () => {
               DII (CAMT) student at Chiang Mai University with a foundation in development, UX/UI design, and Web3, and hands-on experience from hackathons and real-world system development for government agencies.
             </p>
 
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-6">
               {stats.map((stat, index) => (
                 <motion.div
@@ -84,7 +82,6 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* Right - Highlights */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -114,7 +111,6 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

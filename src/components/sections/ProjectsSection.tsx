@@ -8,7 +8,7 @@ const projects = [
     description: 'Decentralized disaster relief platform enabling offline SOS communication.',
     organization: 'ETHChiangmai Hackathon 2026',
     category: 'Competition',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'MetaMask', 'P2P Networking', 'Leaflet', 'Ethereum Smart Contracts', 'Ethers.js'],
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Web3', 'Ethereum', 'MetaMask', 'P2P Networking', 'Leaflet'],
     image: '/Relief%20Mesh.jpg',
     github: 'https://github.com/phoo3011/ReliefMesh-TeamUIA',
     live: '/Relief%20Mesh%20-%20Team%20UIA.mp4',
@@ -91,7 +91,6 @@ const ProjectsSection = () => {
           </h3>
         </motion.div>
 
-        {/* Category Filter Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +121,6 @@ const ProjectsSection = () => {
           ))}
         </motion.div>
 
-        {/* Featured Projects - Large Cards */}
         <div className="space-y-8 mb-16">
           {featuredProjects.length === 0 ? (
             <motion.div
@@ -145,7 +143,6 @@ const ProjectsSection = () => {
               className="group"
             >
               <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
-                {/* Image */}
                 <motion.div 
                   className={`relative overflow-hidden rounded-2xl ${index % 2 === 1 ? 'md:col-start-2' : ''}`}
                   whileHover={{ scale: 1.02 }}
@@ -165,7 +162,6 @@ const ProjectsSection = () => {
                     whileHover={{ opacity: 0.3 }}
                   />
                   
-                  {/* Animated overlay gradient */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0"
                     animate={{ x: ['0%', '200%'] }}
@@ -174,7 +170,6 @@ const ProjectsSection = () => {
                   />
                 </motion.div>
 
-                {/* Content */}
                 <div className={index % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}>
                   <span className="font-merriweather text-xs text-muted-foreground tracking-wider uppercase">
                     Featured Project
@@ -191,7 +186,6 @@ const ProjectsSection = () => {
                     </p>
                   )}
 
-                  {/* Tags */}
                   {project.tags.filter(Boolean).length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.filter(Boolean).map((tag, tagIndex) => (
@@ -210,7 +204,6 @@ const ProjectsSection = () => {
                     </div>
                   )}
 
-                  {/* Links */}
                   <div className="flex gap-4">
                     {project.github && project.github !== '#' && (
                       <motion.a
@@ -268,7 +261,6 @@ const ProjectsSection = () => {
           )}
         </div>
 
-        {/* Other Projects - Grid */}
         {otherProjects.length > 0 && (
           <div className="space-y-12">
             {categories.filter(cat => cat !== 'All').map((category) => {
@@ -380,7 +372,6 @@ const ProjectsSection = () => {
         )}
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

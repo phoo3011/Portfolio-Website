@@ -39,7 +39,6 @@ const SkillsSection = () => {
           </h3>
         </motion.div>
 
-        {/* Skill Categories */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {skillCategories.map((category, catIndex) => (
             <motion.div
@@ -88,7 +87,6 @@ const SkillsSection = () => {
         
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

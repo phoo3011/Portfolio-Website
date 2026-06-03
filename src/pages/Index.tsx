@@ -1,14 +1,14 @@
-import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import ProjectsTimeline from '@/components/ProjectsTimeline';
-import ProjectsSection from '@/components/ProjectsSection';
-import EducationSection from '@/components/EducationSection';
-import SkillsSection from '@/components/SkillsSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
-import FloatingParticles from '@/components/FloatingParticles';
-import InteractiveParticles from '@/components/InteractiveParticles';
+import Navbar from '@/components/layout/Navbar';
+import HeroSection from '@/components/sections/HeroSection';
+import AboutSection from '@/components/sections/AboutSection';
+import ActivitiesSection from '@/components/sections/ActivitiesSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import EducationSection from '@/components/sections/EducationSection';
+import SkillsSection from '@/components/sections/SkillsSection';
+import ContactSection from '@/components/sections/ContactSection';
+import Footer from '@/components/layout/Footer';
+import FloatingParticles from '@/components/effects/FloatingParticles';
+import InteractiveParticles from '@/components/effects/InteractiveParticles';
 
 const Index = () => {
   return (
@@ -20,7 +20,7 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <ProjectsSection />
-        <ProjectsTimeline />
+        <ActivitiesSection />
         <EducationSection />
         <SkillsSection />
         <ContactSection />

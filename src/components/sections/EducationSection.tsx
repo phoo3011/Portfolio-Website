@@ -27,12 +27,10 @@ const education = [
 const EducationSection = () => {
   return (
     <section id="education" className="relative py-24 px-6">
-      {/* Background Elements */}
       <div className="absolute inset-0 dot-pattern opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
 
       <div className="relative z-10 container mx-auto max-w-6xl">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +46,6 @@ const EducationSection = () => {
           </h3>
         </motion.div>
 
-        {/* Education Items */}
         <div className="space-y-8">
           {education.map((edu, index) => (
             <motion.div
@@ -60,12 +57,9 @@ const EducationSection = () => {
               className="group relative"
             >
               <div className="relative card-gradient border border-border/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300">
-                {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
 
-                {/* Content */}
                 <div className="relative">
-                  {/* Header */}
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <GraduationCap className="w-6 h-6 text-primary flex-shrink-0" />
@@ -81,14 +75,12 @@ const EducationSection = () => {
                     </div>
                   </div>
 
-                  {/* Description */}
                   {edu.description && (
                     <p className="text-muted-foreground mt-4 leading-relaxed">
                       {edu.description}
                     </p>
                   )}
 
-                  {/* Highlights */}
                   {edu.highlights.length > 0 && (
                     <div className="space-y-2">
                       {edu.highlights.map((highlight, idx) => (
@@ -106,7 +98,6 @@ const EducationSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
