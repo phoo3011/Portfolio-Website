@@ -21,7 +21,7 @@ const projects = [
     description: 'System dashboard for monitoring camera information and displaying critical alerts, featuring person and vehicle detection.',
     organization: 'Chiang Mai Provincial Office',
     category: 'Production',
-    tags: ['PHP', 'MySQL', 'HTML', 'JavaScript', 'Tailwind CSS'],
+    tags: ['HTML', 'Tailwind CSS', 'JavaScript', 'PHP', 'MySQL'],
     awards: [],
     image: '/Dashboard%20-%20Chiang%20Mai%20Provincial%20Office.jpg',
     github: 'https://github.com/phoo3011/Dashboard-Provincial.git',
@@ -55,7 +55,7 @@ const projects = [
   },
   {
     title: 'Smart Deck Management',
-    description: 'Facilitates table arrangement using 2D/3D models generated from scans or manual input.',
+    description: 'Spatial management system for table arrangement, utilizing 2D/3D models generated from scans or manual input.',
     organization: 'Hylife Hackathon 2025',
     category: 'Competition',
     tags: [],
