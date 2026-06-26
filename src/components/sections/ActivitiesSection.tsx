@@ -12,7 +12,16 @@ type Project = {
 };
 
 const projects: Project[] = [
-        {
+  {
+    name: 'Digital Transformation',
+    organization: 'Zygen',
+    location: 'CAMT, CMU, Thailand',
+    period: '2026',
+    description: 'A real-world digital transformation, covering ERP workflows, industry trends, and in-demand skills for the AI era.',
+    highlights: [],
+    link: 'https://www.facebook.com/CAMTOfficial/posts/pfbid0FBhwoWTV3e8YVBfUbSxiZcDLoX7HmUsipPH7o9pH7dkh3BL6tzNFecX8qtg55BgZl?rdid=0daWJuKkbtCmbs7k#',
+  },
+  {
     name: 'Intelligent Automation',
     organization: 'Zygen',
     location: 'CAMT, CMU, Thailand',
