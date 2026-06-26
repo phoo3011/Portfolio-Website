@@ -1,213 +1,280 @@
-@import url('https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Marcellus&family=Merriweather:wght@300;400;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Marcellus&family=Merriweather:wght@300;400;700&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* OrbitUX-Inspired Dark Futuristic Design System */
+/* OrbitUX-Inspired Dark/Light Satin Design System */
 
 @layer base {
-  :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    :root {
+        --background: 0 0% 0%;
+        --foreground: 0 0% 100%;
 
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
+        --card: 0 0% 5%;
+        --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
+        --popover: 0 0% 5%;
+        --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+        --primary: 0 0% 100%;
+        --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
+        --secondary: 0 0% 10%;
+        --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 80%;
 
-    --accent: 0 0% 20%;
-    --accent-foreground: 0 0% 100%;
+        --accent: 0 0% 20%;
+        --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 100%;
+        --border: 0 0% 20%;
+        --input: 0 0% 15%;
+        --ring: 0 0% 100%;
 
-    --radius: 0.75rem;
+        --radius: 0.75rem;
 
-    /* Custom Design Tokens */
-    --glow-primary: 0 0% 100%;
-    --particle-color: 0 0% 80%;
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(0 0% 5%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 3%) 100%);
-    --shadow-glow: 0 0 60px hsl(0 0% 100% / 0.1);
-    --shadow-card: 0 20px 40px hsl(0 0% 0% / 0.5);
+        /* Custom Design Tokens */
+        --glow-primary: 0 0% 100%;
+        --particle-color: 0 0% 80%;
+        --gradient-dark: linear-gradient(
+            180deg,
+            hsl(0 0% 0%) 0%,
+            hsl(0 0% 5%) 100%
+        );
+        --gradient-card: linear-gradient(
+            135deg,
+            hsl(0 0% 8%) 0%,
+            hsl(0 0% 3%) 100%
+        );
+        --shadow-glow: 0 0 60px hsl(0 0% 100% / 0.1);
+        --shadow-card: 0 20px 40px hsl(0 0% 0% / 0.5);
 
-    /* Typography */
-    --font-palatino: Palatino, 'Palatino Linotype', 'Book Antiqua', serif;
-    --font-caudex: 'Caudex', serif;
-    --font-merriweather: 'Merriweather', serif;
-    --font-sfpro: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', sans-serif;
-    --font-sfsymbols: 'SF Symbols', 'SF Pro Text', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-marcellus: 'Marcellus', serif;
-    --font-mono: 'Space Mono', monospace;
-    --font-sans: 'Inter', system-ui, sans-serif;
-  }
+        /* Satin Dark defaults — kept as-is */
 
-  * {
-    @apply border-border;
-  }
+        /* Typography */
+        --font-palatino: Palatino, "Palatino Linotype", "Book Antiqua", serif;
+        --font-caudex: "Caudex", serif;
+        --font-merriweather: "Merriweather", serif;
+        --font-sfpro:
+            -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+            "Segoe UI", sans-serif;
+        --font-sfsymbols:
+            "SF Symbols", "SF Pro Text", "SF Pro Display", -apple-system,
+            BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-marcellus: "Marcellus", serif;
+        --font-mono: "Space Mono", monospace;
+        --font-sans: "Inter", system-ui, sans-serif;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    /* ── Light Satin Theme ── */
+    .light {
+        --background: 36 30% 95%;
+        --foreground: 0 0% 0%;
 
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-family: var(--font-sans);
-  }
+        --card: 36 25% 91%;
+        --card-foreground: 0 0% 0%;
 
-  ::selection {
-    background: hsl(var(--primary) / 0.2);
-    color: hsl(var(--foreground));
-  }
+        --popover: 36 25% 91%;
+        --popover-foreground: 0 0% 0%;
+
+        --primary: 0 0% 0%;
+        --primary-foreground: 36 30% 95%;
+
+        --secondary: 35 20% 86%;
+        --secondary-foreground: 0 0% 0%;
+
+        --muted: 34 18% 82%;
+        --muted-foreground: 0 0% 25%;
+
+        --accent: 33 18% 78%;
+        --accent-foreground: 0 0% 0%;
+
+        --destructive: 0 72% 50%;
+        --destructive-foreground: 36 30% 95%;
+
+        --border: 32 16% 76%;
+        --input: 34 18% 82%;
+        --ring: 25 20% 14%;
+
+        --glow-primary: 25 20% 14%;
+        --particle-color: 25 12% 55%;
+        --gradient-dark: linear-gradient(
+            180deg,
+            hsl(36 30% 95%) 0%,
+            hsl(36 25% 91%) 100%
+        );
+        --gradient-card: linear-gradient(
+            135deg,
+            hsl(36 22% 89%) 0%,
+            hsl(36 25% 93%) 100%
+        );
+        --shadow-glow: 0 0 60px hsl(25 20% 14% / 0.08);
+        --shadow-card: 0 20px 40px hsl(25 15% 10% / 0.12);
+    }
+
+    * {
+        @apply border-border;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-background text-foreground antialiased;
+        font-family: var(--font-sans);
+    }
+
+    ::selection {
+        background: hsl(var(--primary) / 0.2);
+        color: hsl(var(--foreground));
+    }
 }
 
 /* Custom Utilities */
 @layer utilities {
-  .font-mono {
-    font-family: var(--font-mono);
-  }
+    .font-mono {
+        font-family: var(--font-mono);
+    }
 
-  .font-marcellus {
-    font-family: var(--font-marcellus);
-  }
+    .font-marcellus {
+        font-family: var(--font-marcellus);
+    }
 
-  .font-palatino {
-    font-family: var(--font-palatino);
-  }
+    .font-palatino {
+        font-family: var(--font-palatino);
+    }
 
-  .font-caudex {
-    font-family: var(--font-caudex);
-  }
+    .font-caudex {
+        font-family: var(--font-caudex);
+    }
 
-  .font-merriweather {
-    font-family: var(--font-merriweather);
-  }
+    .font-merriweather {
+        font-family: var(--font-merriweather);
+    }
 
-  .font-sfpro {
-    font-family: var(--font-sfpro);
-  }
+    .font-sfpro {
+        font-family: var(--font-sfpro);
+    }
 
-  .font-sfsymbols {
-    font-family: var(--font-sfsymbols);
-  }
+    .font-sfsymbols {
+        font-family: var(--font-sfsymbols);
+    }
 
-  .font-sans {
-    font-family: var(--font-sans);
-  }
+    .font-sans {
+        font-family: var(--font-sans);
+    }
 
-  .text-glow {
-    text-shadow: 0 0 40px hsl(var(--glow-primary) / 0.5);
-  }
+    .text-glow {
+        text-shadow: 0 0 40px hsl(var(--glow-primary) / 0.5);
+    }
 
-  .glow-box {
-    box-shadow: var(--shadow-glow);
-  }
+    .glow-box {
+        box-shadow: var(--shadow-glow);
+    }
 
-  .gradient-text {
-    background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 60%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+    .gradient-text {
+        background: linear-gradient(
+            135deg,
+            hsl(var(--foreground)) 0%,
+            hsl(var(--muted-foreground)) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 
-  .card-gradient {
-    background: var(--gradient-card);
-  }
+    .card-gradient {
+        background: var(--gradient-card);
+    }
 
-  /* Custom Scrollbar */
-  .scrollbar-custom {
-    scrollbar-width: thin;
-    scrollbar-color: hsl(0 0% 30%) transparent;
-  }
+    /* Custom Scrollbar */
+    .scrollbar-custom {
+        scrollbar-width: thin;
+        scrollbar-color: hsl(0 0% 30%) transparent;
+    }
 
-  .scrollbar-custom::-webkit-scrollbar {
-    height: 6px;
-  }
+    .scrollbar-custom::-webkit-scrollbar {
+        height: 6px;
+    }
 
-  .scrollbar-custom::-webkit-scrollbar-track {
-    background: transparent;
-  }
+    .scrollbar-custom::-webkit-scrollbar-track {
+        background: transparent;
+    }
 
-  .scrollbar-custom::-webkit-scrollbar-thumb {
-    background: hsl(0 0% 30%);
-    border-radius: 3px;
-  }
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+        background: hsl(0 0% 30%);
+        border-radius: 3px;
+    }
 
-  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
-    background: hsl(0 0% 40%);
-  }
+    .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+        background: hsl(0 0% 40%);
+    }
 
-  .dot-pattern {
-    background-image: radial-gradient(hsl(0 0% 30%) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
+    .dot-pattern {
+        background-image: radial-gradient(hsl(0 0% 30%) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
 
-  .animate-pulse-slow {
-    animation: pulse-slow 4s ease-in-out infinite;
-  }
+    .animate-pulse-slow {
+        animation: pulse-slow 4s ease-in-out infinite;
+    }
 
-  .animate-rotate-slow {
-    animation: rotate-slow 20s linear infinite;
-  }
+    .animate-rotate-slow {
+        animation: rotate-slow 20s linear infinite;
+    }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
 }
 
 @keyframes rotate-slow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes particle-drift {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(10px, -10px);
-  }
-  50% {
-    transform: translate(0, -20px);
-  }
-  75% {
-    transform: translate(-10px, -10px);
-  }
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10px, -10px);
+    }
+    50% {
+        transform: translate(0, -20px);
+    }
+    75% {
+        transform: translate(-10px, -10px);
+    }
 }

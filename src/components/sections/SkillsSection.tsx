@@ -1,29 +1,120 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    title: 'Technical Skills',
-    skills: [
-      'Programming: Java, Python, JavaScript, TypeScript',
-      'Web Development: HTML, CSS, Tailwind CSS, React',
-      'Database: SQL, MySQL, SQLite',
-      'UX/UI Design: Wireframing, User Flow, Prototyping, Figma'
+    title: "Technical Skills",
+    items: [
+      {
+        label: "Programming",
+        tags: ["Java", "Python", "JavaScript", "TypeScript"],
+      },
+      {
+        label: "Web Development",
+        tags: ["HTML", "CSS", "Tailwind CSS", "React"],
+      },
+      { label: "Database", tags: ["MySQL", "SQLite"] },
+      {
+        label: "UX/UI Design",
+        tags: ["Wireframing", "User Flow", "Prototyping", "Figma"],
+      },
     ],
   },
   {
-    title: 'Soft Skills',
-    skills: ['Critical Thinking', 'Emotional Intelligence', 'Growth Mindset', 'Time Management', 'etc.'],
+    title: "Soft Skills",
+    items: [
+      {
+        label: "",
+        tags: [
+          "Critical Thinking",
+          "Emotional Intelligence",
+          "Growth Mindset",
+          "Time Management",
+          "etc",
+        ],
+      },
+    ],
   },
   {
-    title: 'Languages',
-    skills: ['Thai (Native)', 'English (Intermediate)'],
+    title: "Languages",
+    items: [{ label: "", tags: ["Thai (Native)", "English (Intermediate)"] }],
   },
 ];
+
+const tagVariants = {
+  hidden: { opacity: 0, scale: 0.75, y: 8 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.35,
+      delay: i * 0.06,
+      ease: [0.34, 1.56, 0.64, 1],
+    },
+  }),
+};
+
+const SkillCard = ({
+  category,
+  delay,
+  className = "",
+}: {
+  category: (typeof skillCategories)[0];
+  delay: number;
+  className?: string;
+}) => {
+  let tagOffset = 0;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay }}
+      viewport={{ once: true }}
+      className={`card-gradient border border-border/50 rounded-2xl p-6 ${className}`}
+    >
+      <h4 className="text-xl font-semibold mb-6 text-center font-marcellus">
+        {category.title}
+      </h4>
+      <div className="space-y-4">
+        {category.items.map((group) => {
+          const groupOffset = tagOffset;
+          tagOffset += group.tags.length;
+          return (
+            <div key={group.label || "default"}>
+              {group.label && (
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+                  {group.label}
+                </p>
+              )}
+              <div className="flex flex-wrap gap-2">
+                {group.tags.map((tag, i) => (
+                  <motion.span
+                    key={tag}
+                    custom={groupOffset + i}
+                    variants={tagVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.08 }}
+                    className="px-3 py-1 rounded-full text-xs font-sfpro border border-border/60 bg-secondary/50 text-foreground cursor-default select-none"
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </motion.div>
+  );
+};
 
 const SkillsSection = () => {
   return (
     <section id="skills" className="relative py-24 px-6">
       <div className="container mx-auto max-w-5xl">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,54 +130,22 @@ const SkillsSection = () => {
           </h3>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {skillCategories.map((category, catIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: catIndex * 0.15 }}
-              viewport={{ once: true }}
-              className="card-gradient border border-border/50 rounded-2xl p-6 min-w-0"
-            >
-              <h4 className="text-2xl font-semibold mb-6 text-center font-marcellus">
-                {category.title}
-              </h4>
-              <div className="space-y-3">
-                {category.skills.map((skill, index) => {
-                  const [label, ...rest] = skill.split(':');
-                  const value = rest.join(':').trim();
-                  
-                  return (
-                    <motion.div
-                      key={skill}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-secondary/50 transition-colors group overflow-x-auto scrollbar-custom"
-                    >
-                      <div className="w-2 h-2 rounded-full bg-foreground/60 group-hover:bg-foreground transition-colors flex-shrink-0" />
-                      <span className="font-sfpro text-sm text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
-                        {value ? (
-                          <>
-                            <span className="font-bold">{label}:</span> {value}
-                          </>
-                        ) : (
-                          skill
-                        )}
-                      </span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Layout: Technical left | Soft Skills + Languages right */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <SkillCard category={skillCategories[0]} delay={0} />
 
-        
+          <div className="flex flex-col gap-6 h-full">
+            <SkillCard category={skillCategories[1]} delay={0.15} />
+            <SkillCard
+              category={skillCategories[2]}
+              delay={0.25}
+              className="flex-1"
+            />
+          </div>
+        </div>
       </div>
 
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

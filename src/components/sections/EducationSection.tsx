@@ -1,25 +1,26 @@
-import { motion } from 'framer-motion';
-import { GraduationCap, Calendar } from 'lucide-react';
+import { motion } from "framer-motion";
+import { GraduationCap, Calendar } from "lucide-react";
 
 const education = [
   {
-    degree: 'Chiang Mai University',
-    school: '',
-    faculty: 'College of Arts, Media and Technology (CAMT), B.S. in Digital Industry Integration (DII)',
-    location: 'Chiang Mai, Thailand',
-    period: '2025 - Present',
-    gpa: '',
-    description: '',
+    degree: "Chiang Mai University",
+    school: "",
+    faculty:
+      "College of Arts, Media and Technology (CAMT), B.S. in Digital Industry Integration (DII)",
+    location: "Chiang Mai, Thailand",
+    period: "2025 - Present",
+    gpa: "",
+    description: "",
     highlights: [],
   },
   {
-    degree: 'Chiang Mai University Demonstration School',
-    school: '',
-    faculty: 'High School Diploma, Science and Mathematics Program',
-    location: 'Chiang Mai, Thailand',
-    period: '2019 - 2024',
-    gpa: '',
-    description: '',
+    degree: "Chiang Mai University Demonstration School",
+    school: "",
+    faculty: "High School Diploma, Science and Mathematics Program",
+    location: "Chiang Mai, Thailand",
+    period: "2019 - 2024",
+    gpa: "",
+    description: "",
     highlights: [],
   },
 ];
@@ -27,7 +28,6 @@ const education = [
 const EducationSection = () => {
   return (
     <section id="education" className="relative py-24 px-6">
-      <div className="absolute inset-0 dot-pattern opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
 
       <div className="relative z-10 container mx-auto max-w-6xl">
@@ -64,9 +64,19 @@ const EducationSection = () => {
                     <div className="flex items-center gap-3">
                       <GraduationCap className="w-6 h-6 text-primary flex-shrink-0" />
                       <div>
-                        <h4 className="text-xl font-bold font-marcellus">{edu.degree}</h4>
-                        {edu.school && <p className="text-muted-foreground font-mono text-sm">{edu.school}</p>}
-                        {edu.faculty && <p className="text-muted-foreground/80 text-base font-sfpro mt-1">{edu.faculty}</p>}
+                        <h4 className="text-xl font-bold font-marcellus">
+                          {edu.degree}
+                        </h4>
+                        {edu.school && (
+                          <p className="text-muted-foreground font-mono text-sm">
+                            {edu.school}
+                          </p>
+                        )}
+                        {edu.faculty && (
+                          <p className="text-muted-foreground/80 text-base font-sfpro mt-1">
+                            {edu.faculty}
+                          </p>
+                        )}
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-muted-foreground font-merriweather text-sm md:ml-auto flex-shrink-0">
@@ -86,7 +96,9 @@ const EducationSection = () => {
                       {edu.highlights.map((highlight, idx) => (
                         <div key={idx} className="flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                          <p className="text-sm text-muted-foreground">{highlight}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {highlight}
+                          </p>
                         </div>
                       ))}
                     </div>

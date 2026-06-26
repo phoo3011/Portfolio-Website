@@ -1,13 +1,17 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/useTheme";
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useTheme();
+
   const links = [
-    { name: 'Profile', href: '#profile' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Activities', href: '#activities' },
-    { name: 'Education', href: '#education' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Profile", href: "#profile" },
+    { name: "Projects", href: "#projects" },
+    { name: "Activities", href: "#activities" },
+    { name: "Education", href: "#education" },
+    { name: "Skills", href: "#skills" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -18,7 +22,10 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/50"
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="font-marcellus text-2xl font-bold tracking-wider text-glow">
+        <a
+          href="#"
+          className="font-marcellus text-2xl font-bold tracking-wider text-glow"
+        >
           Portfolio
         </a>
 
@@ -32,6 +39,18 @@ const Navbar = () => {
               {link.name}
             </a>
           ))}
+
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 rounded-full border border-border bg-background/60 hover:bg-accent transition-colors duration-300 text-foreground"
+          >
+            {theme === "dark" ? (
+              <Sun size={18} strokeWidth={1.8} />
+            ) : (
+              <Moon size={18} strokeWidth={1.8} />
+            )}
+          </button>
         </div>
       </div>
     </motion.nav>
