@@ -43,7 +43,7 @@ const Navbar = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="p-2 rounded-full border border-border bg-background/60 hover:bg-accent transition-colors duration-300 text-foreground"
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-border bg-background/60 hover:bg-accent transition-colors duration-300 text-foreground"
           >
             {theme === "dark" ? (
               <Sun size={18} strokeWidth={1.8} />
