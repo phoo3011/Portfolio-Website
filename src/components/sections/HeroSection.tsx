@@ -83,7 +83,7 @@ const HeroSection = () => {
                 }}
               >
                 <motion.img
-                  src="/dog.jpg"
+                  src="/Profile Phooriwat.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.1 }}
